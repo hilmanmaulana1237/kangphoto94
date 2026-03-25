@@ -1,10 +1,15 @@
 import { NextResponse } from 'next/server';
-import { kv } from '@vercel/kv';
+import { createClient } from '@vercel/kv';
 import fs from 'fs/promises';
 import path from 'path';
 
-// Helper: Menentukan apakah kita berjalan di Vercel (dengan Storage KV) atau Lokal
-const isVercelKVEnabled = Boolean(process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN);
+// Mendeteksi URL dan Token (Support Vercel KV Lama & Upstash Redis Baru)
+const kvUrl = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
+const kvToken = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
+const isVercelKVEnabled = Boolean(kvUrl && kvToken);
+
+// Inisialisasi klien redis kustom jika variabel ada
+const redis = isVercelKVEnabled ? createClient({ url: kvUrl as string, token: kvToken as string }) : null;
 
 const dataFilePath = path.join(process.cwd(), 'orders.json');
 
@@ -27,9 +32,9 @@ export async function GET() {
   try {
     let orders: any[] = [];
 
-    if (isVercelKVEnabled) {
-      // 1. Ambil dari Vercel KV (Redis)
-      orders = (await kv.get('orders')) || [];
+    if (isVercelKVEnabled && redis) {
+      // 1. Ambil dari Vercel KV / Upstash (Redis)
+      orders = (await redis.get('orders')) || [];
     } else {
       // 2. Ambil dari Local JSON
       orders = await getLocalOrders();
@@ -52,11 +57,11 @@ export async function POST(req: Request) {
     
     let orders: any[] = [];
 
-    if (isVercelKVEnabled) {
-      // 1. Simpan ke Vercel KV (Redis)
-      orders = (await kv.get('orders')) || [];
+    if (isVercelKVEnabled && redis) {
+      // 1. Simpan ke Vercel KV / Upstash (Redis)
+      orders = (await redis.get('orders')) || [];
       orders.push(newOrder);
-      await kv.set('orders', orders);
+      await redis.set('orders', orders);
     } else {
       // 2. Simpan ke Local JSON
       orders = await getLocalOrders();
