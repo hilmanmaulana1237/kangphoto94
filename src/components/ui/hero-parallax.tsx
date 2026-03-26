@@ -52,7 +52,7 @@ export const HeroParallax = ({
     springConfig
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
+    useTransform(scrollYProgress, [0, 0.2], [-200, 500]),
     springConfig
   );
   return (
@@ -68,11 +68,11 @@ export const HeroParallax = ({
           translateY,
           opacity,
         }}
-        className=""
+        className="-mt-[20vh] md:-mt-[10vh]"
       >
         <div className="w-full text-center pb-16">
           <h2 className="text-3xl md:text-5xl font-light text-neutral-900 dark:text-white tracking-tight">Hasil <span className="font-bold text-brand-tosca">Karya Udara</span> Kami</h2>
-          <p className="text-neutral-600 dark:text-brand-gray mt-4 max-w-xl mx-auto text-sm md:text-base">Kompilasi momen-momen epik yang kami tangkap langsung dari langit.</p>
+          <p className="text-neutral-600 dark:text-brand-gray mt-4 max-w-xl mx-auto text-sm md:text-base">Lihat bagaimana cerita bahagiamu jadi lebih hidup saat diabadikan dari ketinggian.</p>
         </div>
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
           {firstRow.map((product) => (

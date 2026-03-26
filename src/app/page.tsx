@@ -9,15 +9,15 @@ import { VideoModal } from "@/components/ui/video-modal";
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import {
   IconHome, IconInfoCircle, IconMessage, IconCamera, IconVideo, IconMap,
-  IconWallet, IconBulb, IconShieldCheck, IconFocus2, IconRocket, IconUsers, IconCoin, IconDrone
+  IconWallet, IconBulb, IconShieldCheck, IconFocus2, IconRocket, IconUsers, IconCoin, IconDrone, IconBrandInstagram
 } from "@tabler/icons-react";
 import Image from "next/image";
 
 const droneImages = [
-  "https://images.unsplash.com/photo-1671342986594-290be888b500?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1671431270676-2e7ad2bddd4d?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1672912995257-0c8255289523?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://plus.unsplash.com/premium_photo-1697730050329-e11a8eb63c69?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  "/foto/IMG_4645.PNG",
+  "/foto/IMG_4648.PNG",
+  "/foto/IMG_4650.PNG",
+  "/foto/IMG_4651.PNG"
 ];
 
 const parallaxProducts = [
@@ -46,12 +46,12 @@ const HeroHeader = () => {
       </div>
 
       <TextGenerateEffect
-        words="Elevate Your Vision, Capture The Impossible."
+        words="Make Your Special Moments Look Different in the Sky of Purwokerto!"
         className="text-4xl md:text-6xl lg:text-7xl font-light text-neutral-900 dark:text-white tracking-tight leading-tight z-10"
       />
 
       <p className="text-neutral-600 dark:text-brand-gray text-base md:text-xl max-w-2xl mt-4 max-md:mt-2 font-light leading-relaxed">
-        Jasa Sewa Drone Profesional untuk Foto Udara & Video Udara. Persenjatai project Anda dengan drone terbaik yang dikendalikan oleh pilot bersertifikat.
+        Jasa Sewa Drone Profesional untuk Foto Udara & Video Udara yang cenematic. Menyediakan jasa pilot drone berlisensi, melayani berbagai keperluan seperti company profile, dokumentasi event, aerial photo & video, aerial video only, wedding, proyek kontruksi, pemetahan lahan, dan treveling.
       </p>
 
       <div className="flex flex-col w-full sm:w-auto sm:flex-row gap-4 mt-8 md:mt-12 relative z-20">
@@ -88,22 +88,18 @@ export default function Home() {
 
   // Single drone presentation
 
-  const handleOrder = async (e: React.FormEvent) => {
+  const handleOrder = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // 1. Simpan data ke API lokal (JSON file tanpa database SQL)
-    try {
-      await fetch('/api/orders', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...formData,
-          createdAt: new Date().toISOString()
-        })
-      });
-    } catch (error) {
-      console.error("Gagal menyimpan data:", error);
-    }
+    // 1. Simpan data ke API lokal secara asynchronous tanpa di-await agar redirect WA tidak terblokir di Safari
+    fetch('/api/orders', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ...formData,
+        createdAt: new Date().toISOString()
+      })
+    }).catch((error) => console.error("Gagal menyimpan data:", error));
 
     const text = `Halo kangaerial/kangphoto94_id, saya ingin menyewa drone dengan detail berikut:
 %0A
@@ -117,8 +113,11 @@ export default function Home() {
 %0AMohon konfirmasi ketersediaan dan biayanya. Terima kasih!`;
     const waUrl = `https://wa.me/${WA_NUMBER}?text=${text}`;
 
-    // 3. Arahkan pengguna ke WhatsApp
-    window.open(waUrl, "_blank");
+    // 3. Arahkan pengguna ke WhatsApp (fallback href jika window.open diblokir Safari)
+    const newWindow = window.open(waUrl, "_blank");
+    if (!newWindow || newWindow.closed || typeof newWindow.closed === "undefined") {
+      window.location.href = waUrl;
+    }
   };
 
   return (
@@ -152,7 +151,7 @@ export default function Home() {
             </div>
             <h2 className="text-3xl md:text-5xl font-light text-neutral-900 dark:text-white tracking-tight">4 Alasan Sewa Drone?</h2>
             <p className="text-neutral-600 dark:text-brand-gray mt-6 max-w-3xl mx-auto text-sm md:text-lg leading-relaxed">
-              Memiliki drone sendiri memerlukan biaya akuisisi ratusan juta dan lisensi ketat tingkat nasional. Menyewa adalah kunci efisiensi Anda.
+              Punya drone profesional itu mahal dan perawatannya ribet. Di Kangphoto94_id, kamu dapet solusi cerdas: hasil mewah, tanpa pusing urusan teknis!
             </p>
           </div>
 
@@ -164,8 +163,8 @@ export default function Home() {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl md:text-2xl font-medium text-neutral-900 dark:text-white mb-3">Lebih Ekonomis</h3>
-                <p className="text-neutral-600 dark:text-brand-gray text-sm md:text-base leading-relaxed">Bebas dari beban depresiasi aset ratusan juta, pemeliharaan teknis berkala, hingga asuransi drone. Cukup alokasikan anggaran syuting Anda secara efisien dengan transparansi absolut.</p>
+                <h3 className="text-xl md:text-2xl font-medium text-neutral-900 dark:text-white mb-3">Lebih ekonomis & Bersahabat</h3>
+                <p className="text-neutral-600 dark:text-brand-gray text-sm md:text-base leading-relaxed">Gak perlu keluar puluhan juta buat beli alat. Kamu dapet harga yang bersahabat dan transparan, tanpa mikirin biaya servis atau alat yang makin lama makin turun harganya. Anggaran aman, hasil tetap menawan!</p>
               </div>
             </div>
 
@@ -176,8 +175,8 @@ export default function Home() {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl md:text-2xl font-medium text-neutral-900 dark:text-white mb-3">Jaminan Hasil Terbaik</h3>
-                <p className="text-neutral-600 dark:text-brand-gray text-sm md:text-base leading-relaxed">Dieksekusi secara presisi oleh tangan ahlinya. Harmonisasi dinamis antara manuver ruang dan pergerakan kamera menghasilkan mahakarya visual sinematik berkelas dunia.</p>
+                <h3 className="text-xl md:text-2xl font-medium text-neutral-900 dark:text-white mb-3">Pilot Drone Berpengalaman</h3>
+                <p className="text-neutral-600 dark:text-brand-gray text-sm md:text-base leading-relaxed">Tenang, drone kamu diterbangkan oleh Pilot Drone berpengalaman. Kami paham cara ambil sudut pandang (angle) terbaik dan manuver yang halus untuk menghasilkan video sinematik yang bikin siapa pun terpana.</p>
               </div>
             </div>
 
@@ -188,8 +187,8 @@ export default function Home() {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl md:text-2xl font-medium text-neutral-900 dark:text-white mb-3">Beban Risiko Nol</h3>
-                <p className="text-neutral-600 dark:text-brand-gray text-sm md:text-base leading-relaxed">Eksklusi total terhadap risiko teknis di lokasi syuting. Seluruh jaminan operasional ditangani sepenuhnya oleh operator kami, memastikan keamanan dan tenggat waktu proyek Anda tak terganggu.</p>
+                <h3 className="text-xl md:text-2xl font-medium text-neutral-900 dark:text-white mb-3">Visual 4K Super Jernih</h3>
+                <p className="text-neutral-600 dark:text-brand-gray text-sm md:text-base leading-relaxed">Bukan sekadar asal rekam! Nikmati kualitas video 4K yang super jernih dan tajam. Setiap detail momenmu akan terlihat hidup dan profesional, dengan Pilot drone berpengalaman dan harga bersahabat.</p>
               </div>
             </div>
 
@@ -200,8 +199,8 @@ export default function Home() {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl md:text-2xl font-medium text-neutral-900 dark:text-white mb-3">Fokus Berkarya</h3>
-                <p className="text-neutral-600 dark:text-brand-gray text-sm md:text-base leading-relaxed">Serahkan urusan birokrasi perizinan terbang, kalibrasi sensor kompleks, hingga mitigasi kondisi alat kepada kami. Berikan ruang tak terbatas bagi sutradara untuk sepenuhnya fokus pada visi kreatif.</p>
+                <h3 className="text-xl md:text-2xl font-medium text-neutral-900 dark:text-white mb-3">Kamu Fokus ke Konsep Saja</h3>
+                <p className="text-neutral-600 dark:text-brand-gray text-sm md:text-base leading-relaxed">Serahkan urusan ribet kayak perizinan terbang, kalibrasi sensor, hingga risiko kerusakan alat ke kami. Tugas kamu cuma satu: fokus ke ide kreatifmu, biarkan kami yang eksekusi visualnya dari langit!</p>
               </div>
             </div>
           </div>
@@ -225,32 +224,32 @@ export default function Home() {
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20 relative z-10 py-10">
           <div className="flex-1">
             <h2 className="text-3xl md:text-5xl font-light text-neutral-900 dark:text-white tracking-tight mb-8">
-              Kenapa Memilih Jasa <span className="font-bold text-brand-tosca">kangphoto94_id</span>?
+              Kenapa Harus Pilih <span className="font-bold text-brand-tosca">kangphoto94_id</span>?
             </h2>
             <p className="text-neutral-600 dark:text-brand-gray mb-12 text-sm md:text-lg leading-relaxed max-w-xl">
-              Terdapat ratusan vendor di Indonesia, namun hanya sedikit yang menjanjikan reliabilitas & sentuhan magis di lokasi syuting. Inilah diferensiasi fundamental kami.
+              Dari sekian banyak vendor, kami paham bahwa Anda butuh hasil yang nggak cuma bagus, tapi juga aman dan terpercaya. Inilah alasan kenapa ratusan klien memilih kami sebagai partner dokumentasi udara mereka.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="bg-white dark:bg-black/60 border border-neutral-200 dark:border-neutral-800 p-6 rounded-2xl backdrop-blur-xl hover:bg-brand-tosca/5 hover:border-brand-tosca/50 hover:-translate-y-1 transition-all group">
                 <IconRocket className="w-8 h-8 text-brand-tosca mb-4 group-hover:scale-110 transition-transform" />
-                <h4 className="font-semibold text-lg text-neutral-900 dark:text-white mb-2">Drone Mutakhir</h4>
-                <p className="text-neutral-600 dark:text-brand-gray text-sm">Pembaruan ekosistem DJI Cinema dengan kualitas hingga 8K ProRes Raw secara rutin.</p>
+                <h4 className="font-semibold text-lg text-neutral-900 dark:text-white mb-2">Drone Kualitas 4K</h4>
+                <p className="text-neutral-600 dark:text-brand-gray text-sm">Gak perlu ragu soal kualitas. Kami pakai unit DJI terbaru yang sanggup rekam video 4K super jernih. Gambarnya tajam, warnanya natural.</p>
               </div>
               <div className="bg-white dark:bg-black/60 border border-neutral-200 dark:border-neutral-800 p-6 rounded-2xl backdrop-blur-xl hover:bg-brand-tosca/5 hover:border-brand-tosca/50 hover:-translate-y-1 transition-all group">
                 <IconCamera className="w-8 h-8 text-brand-tosca mb-4 group-hover:scale-110 transition-transform" />
-                <h4 className="font-semibold text-lg text-neutral-900 dark:text-white mb-2">Operator Ahli</h4>
-                <p className="text-neutral-600 dark:text-brand-gray text-sm">Pilot berlisensi, dididik langsung untuk pengambilan gambar berstandar Aerial Cinematography global.</p>
+                <h4 className="font-semibold text-lg text-neutral-900 dark:text-white mb-2">Pilot Ahli & Berpengalaman</h4>
+                <p className="text-neutral-600 dark:text-brand-gray text-sm">Diterbangkan oleh operator jam terbang tinggi. Paham angle sinematik biar momen kamu kelihatan lebih "mahal".</p>
               </div>
               <div className="bg-white dark:bg-black/60 border border-neutral-200 dark:border-neutral-800 p-6 rounded-2xl backdrop-blur-xl hover:bg-brand-tosca/5 hover:border-brand-tosca/50 hover:-translate-y-1 transition-all group">
                 <IconUsers className="w-8 h-8 text-brand-tosca mb-4 group-hover:scale-110 transition-transform" />
-                <h4 className="font-semibold text-lg text-neutral-900 dark:text-white mb-2">Kepercayaan Klien</h4>
-                <p className="text-neutral-600 dark:text-brand-gray text-sm">Portfolio luas dari ratusan klien B2B, brand nasional maupun event berskala internasional.</p>
+                <h4 className="font-semibold text-lg text-neutral-900 dark:text-white mb-2">Puluhan Klien Sudah Percaya</h4>
+                <p className="text-neutral-600 dark:text-brand-gray text-sm">Mulai dari acara nikahan, promosi UMKM, event, company profile sampai proyek lahan.</p>
               </div>
               <div className="bg-white dark:bg-black/60 border border-neutral-200 dark:border-neutral-800 p-6 rounded-2xl backdrop-blur-xl hover:bg-brand-tosca/5 hover:border-brand-tosca/50 hover:-translate-y-1 transition-all group">
                 <IconCoin className="w-8 h-8 text-brand-tosca mb-4 group-hover:scale-110 transition-transform" />
-                <h4 className="font-semibold text-lg text-neutral-900 dark:text-white mb-2">Efisiensi Biaya</h4>
-                <p className="text-neutral-600 dark:text-brand-gray text-sm">Manajemen teknis gesit di lapangan tanpa delay operasional, memotong jam syuting berlebih.</p>
+                <h4 className="font-semibold text-lg text-neutral-900 dark:text-white mb-2">Harga Bersahabat</h4>
+                <p className="text-neutral-600 dark:text-brand-gray text-sm">Kualitas profesional dengan harga yang masuk akal dan bersahabat di kantong mahasiswa.</p>
               </div>
             </div>
           </div>
@@ -288,9 +287,9 @@ export default function Home() {
 
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="mb-20">
-            <h2 className="text-3xl md:text-5xl font-light text-neutral-900 dark:text-white tracking-tight mb-4">Layanan Premium</h2>
+            <h2 className="text-3xl md:text-5xl font-light text-neutral-900 dark:text-white tracking-tight mb-4">Layanan Kami</h2>
             <div className="w-20 h-1 bg-brand-tosca mb-6"></div>
-            <p className="text-neutral-600 dark:text-brand-gray max-w-2xl text-sm md:text-lg">Ruang lingkup operasional yang disesuaikan dengan spektrum industri kreatif yang menuntut presisi tanpa kompromi.</p>
+            <p className="text-neutral-600 dark:text-brand-gray max-w-2xl text-sm md:text-lg">Kami menyediakan berbagai pilihan paket drone yang bisa disesuaikan dengan kebutuhan projek atau acara kamu.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 px-4 md:px-0">
@@ -301,7 +300,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-3">Company Profile</h3>
               <p className="text-neutral-600 dark:text-brand-gray text-sm md:text-base leading-relaxed mt-auto">
-                Tingkatkan citra korporat Anda dengan sudut pandang udara yang megah, menampilkan skala dan profesionalisme aset perusahaan.
+                Bikin citra bisnismu kelihatan lebih mewah dan profesional. Kami ambil sudut pandang udara yang megah untuk menonjolkan skala gedung, hingga aktivitas perusahaanmu dari atas.
               </p>
             </div>
 
@@ -312,7 +311,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-3">Dokumentasi Event</h3>
               <p className="text-neutral-600 dark:text-brand-gray text-sm md:text-base leading-relaxed mt-auto">
-                Cakupan visual spektakuler untuk konser, festival, hingga gathering eksklusif, menangkap euforia massa secara menyeluruh.
+                Abadikan keseruan konser, festival, hingga gathering, atau event lainnya dengan cara yang beda. Kami tangkap momen paling epik dan keramaian acara secara utuh biar memorinya makin berkesan.
               </p>
             </div>
 
@@ -323,7 +322,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-3">Aerial Photo & Video</h3>
               <p className="text-neutral-600 dark:text-brand-gray text-sm md:text-base leading-relaxed mt-auto">
-                Kombinasi foto resolusi tinggi dan video sinematik dinamis untuk dokumentasi serbaguna proyek kreatif apa pun.
+                Paket lengkap buat kamu yang butuh semuanya. Dapatkan foto resolusi tinggi yang tajam dan video sinematik yang halus untuk segala jenis kebutuhan konten kreatifmu.
               </p>
             </div>
 
@@ -334,7 +333,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-3">Aerial Video Only</h3>
               <p className="text-neutral-600 dark:text-brand-gray text-sm md:text-base leading-relaxed mt-auto">
-                Fokus maksimal pada pergerakan kamera udara untuk menghasilkan *footage* sinematik kelas atas yang siap diedit.
+                Fokus buat kamu yang cuma butuh raw footage (video mentah). Kami ambil gambar dengan pergerakan kamera yang stabil dan estetik, siap untuk kamu edit jadi karya yang luar biasa.
               </p>
             </div>
           </div>
@@ -357,7 +356,7 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto z-10">
           <div className="text-center mb-10 md:mb-16">
             <h2 className="text-3xl md:text-5xl font-light text-neutral-900 dark:text-white tracking-tight">Eksplorasi Drone</h2>
-            <p className="text-neutral-600 dark:text-brand-gray mt-4 max-w-xl mx-auto text-sm md:text-lg">Jajaran senjata pamungkas visualisasi angkasa untuk merealisasikan direksi imajinasi Anda.</p>
+            <p className="text-neutral-600 dark:text-brand-gray mt-4 max-w-xl mx-auto text-sm md:text-lg">Pilihan drone terbaik untuk wujudkan ide kreatif kamu jadi visual nyata yang luar biasa.</p>
           </div>
 
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center relative mb-24">
@@ -392,14 +391,14 @@ export default function Home() {
               <div>
                 <h3 className="text-2xl md:text-3xl font-semibold text-neutral-900 dark:text-white mb-4">Pilihan Favorit Klien Kami.</h3>
                 <p className="text-neutral-600 dark:text-brand-gray text-base md:text-lg leading-relaxed">
-                  Paket Pelajar menawarkan keseimbangan sempurna antara harga dan durasi operasional. Direkomendasikan untuk dokumentasi event, wedding, maupun company profile standar tanpa khawatir kehabisan baterai.
+                  Paket paling pas buat kamu yang cari kualitas tinggi tapi harga tetep bersahabat. Cocok banget buat bikin konten dokumentasi event, catatan akhir sekolah, sampai tugas kuliah tanpa perlu pusing soal biaya.
                 </p>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-white dark:bg-black/50 border border-neutral-200 dark:border-neutral-800 p-4 rounded-2xl backdrop-blur-md">
-                  <span className="block text-brand-tosca font-bold text-xl md:text-2xl mb-1">2 Baterai</span>
-                  <span className="text-neutral-600 dark:text-brand-gray text-xs md:text-sm">Durasi Optimal</span>
+                  <span className="block text-brand-tosca font-bold text-xl md:text-2xl mb-1">Flights</span>
+                  <span className="text-neutral-600 dark:text-brand-gray text-xs md:text-sm">Per Day</span>
                 </div>
                 <div className="bg-white dark:bg-black/50 border border-neutral-200 dark:border-neutral-800 p-4 rounded-2xl backdrop-blur-md">
                   <span className="block text-brand-tosca font-bold text-xl md:text-2xl mb-1">Include</span>
@@ -432,11 +431,11 @@ export default function Home() {
               <div className="text-3xl font-bold text-brand-tosca mb-6">350.000</div>
               <ul className="space-y-4 mb-8 text-neutral-600 dark:text-brand-gray text-sm flex-1">
                 <li className="flex items-start gap-3"><IconShieldCheck className="w-5 h-5 text-brand-tosca shrink-0" /> Free Include Pilot</li>
-                <li className="flex items-start gap-3"><IconShieldCheck className="w-5 h-5 text-brand-tosca shrink-0" /> 1 Baterai</li>
+                <li className="flex items-start gap-3"><IconShieldCheck className="w-5 h-5 text-brand-tosca shrink-0" /> 1 Flight Per Day</li>
               </ul>
               <div className="space-y-2 border-t border-neutral-200 dark:border-neutral-800 pt-4 mb-6">
                 <div className="flex items-start gap-2 text-xs italic opacity-80"><IconInfoCircle className="w-4 h-4 text-neutral-400 shrink-0" /> *wajib menunjukkan KTM</div>
-                <div className="flex items-start gap-2 text-xs italic opacity-80"><IconInfoCircle className="w-4 h-4 text-neutral-400 shrink-0" /> *Follow ig @kangphoto94_id (10 akun)</div>
+                <div className="flex items-start gap-2 text-xs italic opacity-80"><IconInfoCircle className="w-4 h-4 text-neutral-400 shrink-0" /> *Follow ig @kangphoto94_id (15 akun)</div>
               </div>
               <a href="#pesan" className="w-full py-3 rounded-xl bg-brand-tosca text-white font-medium text-center hover:bg-brand-darkTosca transition-colors block">Pilih Paket Pelajar</a>
             </div>
@@ -447,7 +446,7 @@ export default function Home() {
               <div className="text-3xl font-bold text-brand-tosca mb-6">500.000</div>
               <ul className="space-y-4 mb-8 text-neutral-600 dark:text-brand-gray text-sm flex-1">
                 <li className="flex items-start gap-3"><IconShieldCheck className="w-5 h-5 text-brand-tosca shrink-0" /> Free Include Pilot</li>
-                <li className="flex items-start gap-3"><IconShieldCheck className="w-5 h-5 text-brand-tosca shrink-0" /> 1 Baterai</li>
+                <li className="flex items-start gap-3"><IconShieldCheck className="w-5 h-5 text-brand-tosca shrink-0" /> 1 Flight Per Day</li>
               </ul>
               <div className="mt-auto">
                 <a href="#pesan" className="w-full py-3 rounded-xl bg-neutral-900 dark:bg-white text-white dark:text-black font-medium text-center hover:bg-brand-tosca hover:text-white transition-colors block">Pilih Paket 1</a>
@@ -460,7 +459,7 @@ export default function Home() {
               <div className="text-3xl font-bold text-brand-tosca mb-6">800.000</div>
               <ul className="space-y-4 mb-8 text-neutral-600 dark:text-brand-gray text-sm flex-1">
                 <li className="flex items-start gap-3"><IconShieldCheck className="w-5 h-5 text-brand-tosca shrink-0" /> Free Include Pilot</li>
-                <li className="flex items-start gap-3"><IconShieldCheck className="w-5 h-5 text-brand-tosca shrink-0" /> 2 Baterai</li>
+                <li className="flex items-start gap-3"><IconShieldCheck className="w-5 h-5 text-brand-tosca shrink-0" /> 2 Flights Per Day</li>
               </ul>
               <div className="mt-auto">
                 <a href="#pesan" className="w-full py-3 rounded-xl bg-neutral-900 dark:bg-white text-white dark:text-black font-medium text-center hover:bg-brand-tosca hover:text-white transition-colors block">Pilih Paket 2</a>
@@ -499,9 +498,9 @@ export default function Home() {
         </div>
         <div className="relative max-w-7xl mx-auto z-10">
           <div className="text-center mb-16 md:mb-20">
-            <h2 className="text-3xl md:text-5xl font-light text-neutral-900 dark:text-white tracking-tight mb-4">Mahakarya Visual</h2>
+            <h2 className="text-3xl md:text-5xl font-light text-neutral-900 dark:text-white tracking-tight mb-4">Koleksi Momen Terbaik</h2>
             <div className="w-20 h-1 bg-brand-tosca mx-auto mb-6"></div>
-            <p className="text-neutral-600 dark:text-brand-gray max-w-2xl mx-auto text-sm md:text-lg">Cuplikan dokumentasi udara eksklusif yang direkam oleh pilot tersertifikasi <strong>kangphoto94_id</strong>.</p>
+            <p className="text-neutral-600 dark:text-brand-gray max-w-2xl mx-auto text-sm md:text-lg">Bosan dengan Dokumentasi yang itu-itu saja? Intip koleksi karya udara kami <strong>kangphoto94_id</strong></p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -517,6 +516,20 @@ export default function Home() {
               title="Sky Lantern Festival"
               videoSrc="/video/SkyLantern.mp4"
             />
+          </div>
+
+          {/* INSTAGRAM BUTTON */}
+          <div className="mt-16 flex justify-center w-full relative z-20">
+            <a 
+              href="https://instagram.com/kangphoto94_id" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center justify-center gap-3 px-8 py-5 bg-gradient-to-tr from-[#f09433] via-[#e6683c] via-[#dc2743] via-[#cc2366] to-[#bc1888] rounded-full text-white font-semibold text-base md:text-lg overflow-hidden shadow-[0_0_40px_rgba(220,39,67,0.4)] hover:shadow-[0_0_60px_rgba(220,39,67,0.6)] hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
+              <IconBrandInstagram className="w-7 h-7 relative z-10 group-hover:scale-110 transition-transform duration-300" />
+              <span className="relative z-10 tracking-wide">Lihat Portofolio di Instagram</span>
+            </a>
           </div>
         </div>
       </section>
@@ -538,7 +551,7 @@ export default function Home() {
 
         <div className="relative z-10 max-w-4xl mx-auto">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-5xl font-light text-neutral-900 dark:text-white tracking-tight">Kunci Jadwal Anda</h2>
+            <h2 className="text-3xl md:text-5xl font-light text-neutral-900 dark:text-white tracking-tight">Booking Jadwal Anda</h2>
             <p className="text-neutral-600 dark:text-brand-gray mt-4 max-w-xl mx-auto text-sm md:text-lg">Silakan selesaikan form di bawah. Tim <span className="text-brand-tosca font-bold">kangphoto94_id</span> akan terhubung via WhatsApp secara interaktif.</p>
           </div>
 
