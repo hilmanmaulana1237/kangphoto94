@@ -51,19 +51,16 @@ export default function Home() {
       console.error("Gagal menyimpan data:", error);
     }
 
-    // 2. Format Teks untuk WhatsApp
-    const text = `Jasa sewa drone purwokerto
-%0ASilahkan isi form dibawah ini 👇🏻
+    const text = `Halo kangaerial/kangphoto94_id, saya ingin menyewa drone dengan detail berikut:
 %0A
-%0ANama : ${formData.name}
-%0ANo HP : ${formData.phone}
-%0APaket sewa : ${formData.package}
-%0AAlamat : ${formData.address}
-%0ATanggal pelaksanaan: ${formData.date}
-%0AKartu KTM : ${formData.ktm || '-'}
+%0ANama: ${formData.name}
+%0ADrone: DJI Mini 3
+%0ATanggal: ${formData.date}
+%0ADurasi: ${formData.package}
+%0ADengan Pilot: Ya
+%0APesan Tambahan: ${formData.address || '-'}
 %0A
-%0A👉🏻Booking maksimal H-7
-%0A👉🏻Pembayaran DP 30%`;
+%0AMohon konfirmasi ketersediaan dan biayanya. Terima kasih!`;
     const waUrl = `https://wa.me/${WA_NUMBER}?text=${text}`;
 
     // 3. Arahkan pengguna ke WhatsApp
