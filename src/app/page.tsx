@@ -459,7 +459,7 @@ export default function Home() {
               <div className="text-3xl font-bold text-brand-tosca mb-6">800.000</div>
               <ul className="space-y-4 mb-8 text-neutral-600 dark:text-brand-gray text-sm flex-1">
                 <li className="flex items-start gap-3"><IconShieldCheck className="w-5 h-5 text-brand-tosca shrink-0" /> Free Include Pilot</li>
-                <li className="flex items-start gap-3"><IconShieldCheck className="w-5 h-5 text-brand-tosca shrink-0" /> 2 Flights Per Day</li>
+                <li className="flex items-start gap-3"><IconShieldCheck className="w-5 h-5 text-brand-tosca shrink-0" /> 1 Flights Per Day</li>
               </ul>
               <div className="mt-auto">
                 <a href="#pesan" className="w-full py-3 rounded-xl bg-neutral-900 dark:bg-white text-white dark:text-black font-medium text-center hover:bg-brand-tosca hover:text-white transition-colors block">Pilih Paket 2</a>
@@ -675,7 +675,7 @@ export default function Home() {
             © {new Date().getFullYear()} DyraStudio. Hak Cipta Dilindungi.
           </div>
           <div className="text-brand-tosca text-xs text-center md:text-right uppercase tracking-[0.2em] font-medium">
-            Perspektif Kelas Dunia.
+            Abadikan Momen Bersama Kami.
           </div>
         </div>
       </footer>
