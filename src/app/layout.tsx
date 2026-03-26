@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "kangphoto94 | Premium Drone Rental & Aerial Cinematography",
+  title: "kangphoto94_id | Premium Drone Rental & Aerial Cinematography",
   description: "Sewa drone DJI Mini 3 profesional dengan pilot bersertifikat. Solusi praktis dokumentasi udara untuk film, event, dan komersial dengan hasil visual cinematic terbaik.",
   icons: {
     icon: "/logo.jpg",

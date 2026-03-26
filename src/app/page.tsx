@@ -28,7 +28,7 @@ export default function Home() {
     { name: "Beranda", link: "/", icon: <IconHome className="h-4 w-4" /> },
     { name: "Tentang", link: "#tentang", icon: <IconInfoCircle className="h-4 w-4" /> },
     { name: "Layanan", link: "#layanan", icon: <IconCamera className="h-4 w-4" /> },
-    { name: "Armada", link: "#armada", icon: <IconRocket className="h-4 w-4" /> },
+    { name: "Drone", link: "#drone", icon: <IconRocket className="h-4 w-4" /> },
     { name: "Pesan", link: "#pesan", icon: <IconMessage className="h-4 w-4" /> },
   ];
 
@@ -96,7 +96,7 @@ export default function Home() {
 
         <div className="z-10 flex flex-col items-center justify-center px-4 md:px-6 max-w-5xl mx-auto text-center gap-6 relative mt-10 md:mt-0">
           <div className="px-5 py-2 rounded-full border border-brand-tosca/30 text-brand-tosca shadow-[0_0_20px_rgba(21,154,156,0.2)] text-xs md:text-sm tracking-[0.2em] uppercase font-medium bg-neutral-50 dark:bg-brand-black/80 backdrop-blur-md">
-            Sewa Drone Premium <span className="text-neutral-900 dark:text-white">kangphoto94</span>
+            Sewa Drone Premium <span className="text-neutral-900 dark:text-white">kangphoto94_id</span>
           </div>
 
           <TextGenerateEffect
@@ -105,12 +105,12 @@ export default function Home() {
           />
 
           <p className="text-neutral-600 dark:text-brand-gray text-base md:text-xl max-w-2xl mt-4 max-md:mt-2 font-light leading-relaxed px-4">
-            Jasa Sewa Drone Profesional untuk Foto Udara & Video Udara. Persenjatai project Anda dengan armada mutakhir yang dikendalikan oleh pilot bersertifikat.
+            Jasa Sewa Drone Profesional untuk Foto Udara & Video Udara. Persenjatai project Anda dengan drone terbaik yang dikendalikan oleh pilot bersertifikat.
           </p>
 
           <div className="flex flex-col w-full sm:w-auto sm:flex-row gap-4 mt-8 md:mt-12 px-4 relative z-20">
-            <a href="#armada" className="px-8 py-4 rounded-full bg-brand-tosca text-white font-semibold hover:bg-brand-darkTosca hover:scale-[1.02] shadow-[0_0_40px_rgba(21,154,156,0.4)] transition-all text-sm md:text-base text-center">
-              Eksplorasi Armada
+            <a href="#drone" className="px-8 py-4 rounded-full bg-brand-tosca text-white font-semibold hover:bg-brand-darkTosca hover:scale-[1.02] shadow-[0_0_40px_rgba(21,154,156,0.4)] transition-all text-sm md:text-base text-center">
+              Eksplorasi Drone
             </a>
             <a href="#pesan" className="px-8 py-4 rounded-full border border-brand-gray/50 text-neutral-900 dark:text-white font-medium hover:bg-brand-tosca/10 hover:border-brand-tosca hover:text-brand-tosca transition-colors text-sm md:text-base text-center backdrop-blur-sm bg-white dark:bg-black/40">
               Booking Sekarang
@@ -154,7 +154,7 @@ export default function Home() {
               </div>
               <div>
                 <h3 className="text-xl md:text-2xl font-medium text-neutral-900 dark:text-white mb-3">Lebih Ekonomis</h3>
-                <p className="text-neutral-600 dark:text-brand-gray text-sm md:text-base leading-relaxed">Bebas dari beban depresiasi aset ratusan juta, pemeliharaan teknis berkala, hingga asuransi armada. Cukup alokasikan anggaran syuting Anda secara efisien dengan transparansi absolut.</p>
+                <p className="text-neutral-600 dark:text-brand-gray text-sm md:text-base leading-relaxed">Bebas dari beban depresiasi aset ratusan juta, pemeliharaan teknis berkala, hingga asuransi drone. Cukup alokasikan anggaran syuting Anda secara efisien dengan transparansi absolut.</p>
               </div>
             </div>
 
@@ -214,7 +214,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20 relative z-10 py-10">
           <div className="flex-1">
             <h2 className="text-3xl md:text-5xl font-light text-neutral-900 dark:text-white tracking-tight mb-8">
-              Kenapa Memilih Jasa <span className="font-bold text-brand-tosca">kangphoto94</span>?
+              Kenapa Memilih Jasa <span className="font-bold text-brand-tosca">kangphoto94_id</span>?
             </h2>
             <p className="text-neutral-600 dark:text-brand-gray mb-12 text-sm md:text-lg leading-relaxed max-w-xl">
               Terdapat ratusan vendor di Indonesia, namun hanya sedikit yang menjanjikan reliabilitas & sentuhan magis di lokasi syuting. Inilah diferensiasi fundamental kami.
@@ -223,7 +223,7 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="bg-white dark:bg-black/60 border border-neutral-200 dark:border-neutral-800 p-6 rounded-2xl backdrop-blur-xl hover:bg-brand-tosca/5 hover:border-brand-tosca/50 hover:-translate-y-1 transition-all group">
                 <IconRocket className="w-8 h-8 text-brand-tosca mb-4 group-hover:scale-110 transition-transform" />
-                <h4 className="font-semibold text-lg text-neutral-900 dark:text-white mb-2">Armada Mutakhir</h4>
+                <h4 className="font-semibold text-lg text-neutral-900 dark:text-white mb-2">Drone Mutakhir</h4>
                 <p className="text-neutral-600 dark:text-brand-gray text-sm">Pembaruan ekosistem DJI Cinema dengan kualitas hingga 8K ProRes Raw secara rutin.</p>
               </div>
               <div className="bg-white dark:bg-black/60 border border-neutral-200 dark:border-neutral-800 p-6 rounded-2xl backdrop-blur-xl hover:bg-brand-tosca/5 hover:border-brand-tosca/50 hover:-translate-y-1 transition-all group">
@@ -252,7 +252,7 @@ export default function Home() {
                 src="https://images.unsplash.com/photo-1508444845599-5c89863b1c44?q=80&w=1169&auto=format&fit=crop"
                 width={600}
                 height={800}
-                alt="kangphoto94 cinematic shot"
+                alt="kangphoto94_id cinematic shot"
                 className="rounded-2xl grayscale hover:grayscale-0 transition-all duration-700"
               />
             </div>
@@ -331,7 +331,7 @@ export default function Home() {
       </section>
 
       {/* FLEET SECTION: HANGAR/STUDIO BACKGROUND */}
-      <section id="armada" className="py-24 md:py-32 px-4 w-full relative">
+      <section id="drone" className="py-24 md:py-32 px-4 w-full relative">
         <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
           <Image
             src="https://images.unsplash.com/photo-1579820010410-c10411aaaa88?q=80&w=2000&auto=format&fit=crop"
@@ -345,7 +345,7 @@ export default function Home() {
         </div>
         <div className="relative max-w-7xl mx-auto z-10">
           <div className="text-center mb-10 md:mb-16">
-            <h2 className="text-3xl md:text-5xl font-light text-neutral-900 dark:text-white tracking-tight">Eksplorasi Armada</h2>
+            <h2 className="text-3xl md:text-5xl font-light text-neutral-900 dark:text-white tracking-tight">Eksplorasi Drone</h2>
             <p className="text-neutral-600 dark:text-brand-gray mt-4 max-w-xl mx-auto text-sm md:text-lg">Jajaran senjata pamungkas visualisasi angkasa untuk merealisasikan direksi imajinasi Anda.</p>
           </div>
 
@@ -490,7 +490,7 @@ export default function Home() {
           <div className="text-center mb-16 md:mb-20">
             <h2 className="text-3xl md:text-5xl font-light text-neutral-900 dark:text-white tracking-tight mb-4">Mahakarya Visual</h2>
             <div className="w-20 h-1 bg-brand-tosca mx-auto mb-6"></div>
-            <p className="text-neutral-600 dark:text-brand-gray max-w-2xl mx-auto text-sm md:text-lg">Cuplikan dokumentasi udara eksklusif yang direkam oleh pilot tersertifikasi <strong>kangphoto94</strong>.</p>
+            <p className="text-neutral-600 dark:text-brand-gray max-w-2xl mx-auto text-sm md:text-lg">Cuplikan dokumentasi udara eksklusif yang direkam oleh pilot tersertifikasi <strong>kangphoto94_id</strong>.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -528,7 +528,7 @@ export default function Home() {
         <div className="relative z-10 max-w-4xl mx-auto">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-5xl font-light text-neutral-900 dark:text-white tracking-tight">Kunci Jadwal Anda</h2>
-            <p className="text-neutral-600 dark:text-brand-gray mt-4 max-w-xl mx-auto text-sm md:text-lg">Silakan selesaikan form di bawah. Tim <span className="text-brand-tosca font-bold">kangphoto94</span> akan terhubung via WhatsApp secara interaktif.</p>
+            <p className="text-neutral-600 dark:text-brand-gray mt-4 max-w-xl mx-auto text-sm md:text-lg">Silakan selesaikan form di bawah. Tim <span className="text-brand-tosca font-bold">kangphoto94_id</span> akan terhubung via WhatsApp secara interaktif.</p>
           </div>
 
           <div className="relative bg-white/90 dark:bg-neutral-950/70 backdrop-blur-2xl border border-neutral-200 dark:border-neutral-800 p-6 md:p-12 rounded-[2.5rem] shadow-[0_0_80px_rgba(0,0,0,0.8)] overflow-hidden">
@@ -625,13 +625,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 md:gap-4 mb-12">
           <div className="flex flex-col gap-2">
             <div className="text-2xl md:text-3xl font-light tracking-widest text-brand-tosca">
-              kangphoto<span className="font-bold text-neutral-600 dark:text-brand-gray">94</span>
+              kangphoto94<span className="font-bold text-neutral-600 dark:text-brand-gray">_id</span>
             </div>
             <p className="text-neutral-600 dark:text-brand-gray text-xs md:text-sm tracking-wide uppercase">Premium Aerial Cinematography</p>
           </div>
           <div className="flex gap-8 text-sm font-medium text-neutral-600 dark:text-brand-gray">
             <a href="#layanan" className="hover:text-brand-tosca transition-colors">Layanan</a>
-            <a href="#armada" className="hover:text-brand-tosca transition-colors">Armada</a>
+            <a href="#drone" className="hover:text-brand-tosca transition-colors">Drone</a>
             <a href="#pesan" className="hover:text-brand-tosca transition-colors">Reservasi</a>
           </div>
         </div>

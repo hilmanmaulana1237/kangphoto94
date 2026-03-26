@@ -39,7 +39,7 @@ export default function AdminLogin() {
   return (
     <div className="min-h-screen bg-brand-black flex items-center justify-center p-4 font-sans selection:bg-brand-tosca/30 selection:text-brand-tosca">
       <div className="w-full max-w-md bg-neutral-900/40 backdrop-blur-2xl border border-neutral-800 p-8 md:p-10 rounded-[2.5rem] shadow-[0_0_60px_rgba(0,0,0,0.8)] relative overflow-hidden">
-        
+
         {/* Glow efek latar belakang */}
         <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-brand-tosca to-transparent"></div>
         <div className="absolute -top-40 -left-40 w-80 h-80 bg-brand-tosca/10 blur-[100px] rounded-full"></div>
@@ -50,7 +50,7 @@ export default function AdminLogin() {
               <IconLock className="w-8 h-8 text-brand-tosca" />
             </div>
             <h1 className="text-2xl md:text-3xl font-light text-white tracking-tight">Login <span className="font-semibold text-brand-tosca">Admin</span></h1>
-            <p className="text-brand-gray mt-2 text-sm leading-relaxed">Masukkan kredensial otorisasi untuk mengakses data preservasi kangphoto94.</p>
+            <p className="text-brand-gray mt-2 text-sm leading-relaxed">Masukkan kredensial otorisasi untuk mengakses data preservasi kangphoto94_id.</p>
           </div>
 
           <form onSubmit={handleLogin} className="flex flex-col gap-6">
@@ -70,7 +70,7 @@ export default function AdminLogin() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full bg-black/60 border border-neutral-800 rounded-2xl pl-12 pr-5 py-4 text-white placeholder-brand-gray/30 focus:outline-none focus:border-brand-tosca transition-all font-light"
-                  placeholder="kangphoto94@gmail.com"
+                  placeholder="kangphoto94_id@gmail.com"
                 />
               </div>
             </div>

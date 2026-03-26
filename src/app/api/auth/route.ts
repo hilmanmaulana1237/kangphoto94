@@ -5,17 +5,17 @@ export async function POST(req: Request) {
   try {
     const { email, password } = await req.json();
 
-    if (email === 'kangphoto94@gmail.com' && password === 'hilmanganteng') {
+    if (email === 'kangphoto94_id@gmail.com' && password === 'hilmanganteng') {
       // Tunggu cookies() resolve sebelum memanggil method .set() (Penting di Next.js 15+ jika cookies() bersifat async) 
       // Next.js 14- treats it as sync, Next.js 15+ as async, jadi kita asumsikan await aman
       const cookieStore = await cookies();
-      cookieStore.set('admin_auth', 'authenticated', { 
-        httpOnly: true, 
-        secure: process.env.NODE_ENV === 'production', 
+      cookieStore.set('admin_auth', 'authenticated', {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
         path: '/',
         maxAge: 60 * 60 * 24 // 1 Hari
       });
-      
+
       return NextResponse.json({ success: true });
     }
 
