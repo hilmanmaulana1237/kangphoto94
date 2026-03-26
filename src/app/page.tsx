@@ -620,11 +620,21 @@ export default function Home() {
       {/* FOOTER */}
       <footer className="border-t border-brand-tosca/20 bg-neutral-50 dark:bg-brand-black pt-16 pb-8 relative z-20">
         <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 md:gap-4 mb-12">
-          <div className="flex flex-col gap-2">
-            <div className="text-2xl md:text-3xl font-light tracking-widest text-brand-tosca">
-              kangphoto94<span className="font-bold text-neutral-600 dark:text-brand-gray">_id</span>
+          <div className="flex items-center gap-5">
+            <div className="relative w-14 h-14 md:w-16 md:h-16 rounded-2xl overflow-hidden border border-brand-tosca/20 shadow-[0_0_30px_rgba(21,154,156,0.1)] group">
+              <Image 
+                src="/logo.jpg" 
+                fill 
+                className="object-cover group-hover:scale-110 transition-transform duration-500" 
+                alt="Logo kangphoto94_id" 
+              />
             </div>
-            <p className="text-neutral-600 dark:text-brand-gray text-xs md:text-sm tracking-wide uppercase">Premium Aerial Cinematography</p>
+            <div className="flex flex-col gap-1">
+              <div className="text-2xl md:text-3xl font-light tracking-widest text-brand-tosca">
+                kangphoto94<span className="font-bold text-neutral-600 dark:text-brand-gray">_id</span>
+              </div>
+              <p className="text-neutral-600 dark:text-brand-gray text-xs md:text-sm tracking-wide uppercase">Premium Aerial Cinematography</p>
+            </div>
           </div>
           <div className="flex gap-8 text-sm font-medium text-neutral-600 dark:text-brand-gray">
             <a href="#layanan" className="hover:text-brand-tosca transition-colors">Layanan</a>
