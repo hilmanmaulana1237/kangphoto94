@@ -413,7 +413,7 @@ export default function Home() {
             {/* Paket Promo Pelajar */}
             <div className="bg-white dark:bg-black/60 border border-neutral-200 dark:border-neutral-800 rounded-3xl p-6 lg:p-8 backdrop-blur-xl hover:border-brand-tosca/50 hover:shadow-[0_0_40px_rgba(21,154,156,0.15)] transition-all flex flex-col relative overflow-hidden group">
               <div className="px-3 py-1 mb-3 rounded-full bg-brand-tosca/10 border border-brand-tosca/50 text-brand-tosca text-xs font-semibold backdrop-blur-md w-fit inline-block">BEST SELLER</div>
-              <div class="absolute top-0 inset-x-0 h-1 bg-brand-tosca"></div>
+              <div className="absolute top-0 inset-x-0 h-1 bg-brand-tosca"></div>
               <h3 className="text-xl font-bold text-neutral-900 dark:text-white mb-2">Paket Promo Pelajar</h3>
               <div className="text-3xl font-bold text-brand-tosca mb-6">350.000</div>
               <ul className="space-y-4 mb-8 text-neutral-600 dark:text-brand-gray text-sm flex-1">
@@ -590,7 +590,7 @@ export default function Home() {
                   value={formData.address}
                   onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                   className="bg-neutral-50 dark:bg-brand-black/80 border border-neutral-200 dark:border-neutral-800 rounded-2xl px-5 py-5 text-neutral-900 dark:text-white placeholder-brand-gray/50 focus:outline-none focus:border-brand-tosca transition-all resize-none font-light"
-                  placeholder="FMIPA Unsoed"
+                  placeholder="Contoh: Purwokerto Utara, Alamat Lengkap..."
                 ></textarea>
               </div>
 
