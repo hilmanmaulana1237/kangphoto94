@@ -9,7 +9,7 @@ import { VideoModal } from "@/components/ui/video-modal";
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import {
   IconHome, IconInfoCircle, IconMessage, IconCamera, IconVideo, IconMap,
-  IconWallet, IconBulb, IconShieldCheck, IconFocus2, IconRocket, IconUsers, IconCoin, IconDrone, IconBrandInstagram
+  IconWallet, IconBulb, IconShieldCheck, IconFocus2, IconRocket, IconUsers, IconCoin, IconDrone, IconBrandInstagram, IconBrandTiktok
 } from "@tabler/icons-react";
 import Image from "next/image";
 
@@ -518,17 +518,30 @@ export default function Home() {
             />
           </div>
 
-          {/* INSTAGRAM BUTTON */}
-          <div className="mt-16 flex justify-center w-full relative z-20">
+          {/* SOCIAL MEDIA BUTTONS */}
+          <div className="mt-16 flex flex-col sm:flex-row justify-center items-center gap-6 w-full relative z-20">
+            {/* INSTAGRAM BUTTON */}
             <a
               href="https://instagram.com/kangphoto94_id"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center justify-center gap-3 px-8 py-5 bg-gradient-to-tr from-[#f09433] via-[#e6683c] via-[#dc2743] via-[#cc2366] to-[#bc1888] rounded-full text-white font-semibold text-base md:text-lg overflow-hidden shadow-[0_0_40px_rgba(220,39,67,0.4)] hover:shadow-[0_0_60px_rgba(220,39,67,0.6)] hover:-translate-y-1 transition-all duration-300"
+              className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 md:py-5 bg-gradient-to-tr from-[#f09433] via-[#e6683c] via-[#dc2743] via-[#cc2366] to-[#bc1888] rounded-full text-white font-semibold text-base md:text-lg overflow-hidden shadow-[0_0_40px_rgba(220,39,67,0.4)] hover:shadow-[0_0_60px_rgba(220,39,67,0.6)] hover:-translate-y-1 transition-all duration-300"
             >
               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
-              <IconBrandInstagram className="w-7 h-7 relative z-10 group-hover:scale-110 transition-transform duration-300" />
-              <span className="relative z-10 tracking-wide">Lihat Portofolio di Instagram</span>
+              <IconBrandInstagram className="w-6 h-6 md:w-7 md:h-7 relative z-10 group-hover:scale-110 transition-transform duration-300" />
+              <span className="relative z-10 tracking-wide">Instagram</span>
+            </a>
+            
+            {/* TIKTOK BUTTON */}
+            <a
+              href="https://www.tiktok.com/@kangphoto94.id"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 md:py-5 bg-gradient-to-b from-neutral-800 to-black rounded-full text-white font-semibold text-base md:text-lg overflow-hidden shadow-[0_0_30px_rgba(37,244,238,0.2)] hover:shadow-[0_0_40px_rgba(254,44,85,0.4)] border-l-[3px] border-l-[#25F4EE] border-r-[3px] border-r-[#FE2C55] hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
+              <IconBrandTiktok className="w-6 h-6 md:w-7 md:h-7 relative z-10 group-hover:scale-110 transition-transform duration-300 text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]" />
+              <span className="relative z-10 tracking-wide">TikTok</span>
             </a>
           </div>
         </div>

@@ -143,18 +143,17 @@ export const ProductCard = ({
     >
       <a
         href={product.link}
-        className="block group-hover/product:shadow-2xl rounded-2xl overflow-hidden shadow-xl"
+        className="block group-hover/product:shadow-2xl rounded-2xl overflow-hidden shadow-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 h-full w-full relative"
       >
         <Image
           src={product.thumbnail}
-          height="600"
-          width="600"
-          className="object-cover object-left-top absolute h-full w-full inset-0 grayscale-[20%] group-hover/product:grayscale-0 transition-all duration-500"
+          fill
+          className="object-contain p-2 md:p-4 object-center absolute inset-0 grayscale-[20%] group-hover/product:grayscale-0 transition-all duration-500"
           alt={product.title}
           unoptimized
         />
       </a>
-      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black/60 pointer-events-none transition-opacity duration-300 rounded-2xl"></div>
+      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-50 bg-black/40 pointer-events-none transition-opacity duration-300 rounded-2xl"></div>
       <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-brand-tosca font-bold text-xl pointer-events-none transition-opacity duration-300">
         {product.title}
       </h2>
