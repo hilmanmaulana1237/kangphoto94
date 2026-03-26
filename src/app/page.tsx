@@ -379,7 +379,7 @@ export default function Home() {
                         <div className="px-2 py-1 md:px-3 md:py-1 mb-3 rounded-full bg-brand-tosca text-white border border-brand-tosca/50 text-[10px] md:text-xs font-bold shadow-md w-fit inline-block tracking-wider">
                           BEST SELLER 🔥
                         </div>
-                        <h3 className="text-3xl font-bold text-white drop-shadow-lg">Paket Pelajar <br></br>(DJI Mini 3)</h3>
+                        <h3 className="text-2xl md:text-3xl font-bold text-white drop-shadow-lg">Paket Pelajar <br></br>(DJI Mini 3)</h3>
                       </div>
                     </div>
                   </CardItem>
