@@ -413,6 +413,7 @@ export default function Home() {
             {/* Paket Promo Pelajar */}
             <div className="bg-white dark:bg-black/60 border border-neutral-200 dark:border-neutral-800 rounded-3xl p-6 lg:p-8 backdrop-blur-xl hover:border-brand-tosca/50 hover:shadow-[0_0_40px_rgba(21,154,156,0.15)] transition-all flex flex-col relative overflow-hidden group">
               <div className="px-3 py-1 mb-3 rounded-full bg-brand-tosca/10 border border-brand-tosca/50 text-brand-tosca text-xs font-semibold backdrop-blur-md w-fit inline-block">BEST SELLER</div>
+              <div class="absolute top-0 inset-x-0 h-1 bg-brand-tosca"></div>
               <h3 className="text-xl font-bold text-neutral-900 dark:text-white mb-2">Paket Promo Pelajar</h3>
               <div className="text-3xl font-bold text-brand-tosca mb-6">350.000</div>
               <ul className="space-y-4 mb-8 text-neutral-600 dark:text-brand-gray text-sm flex-1">
@@ -441,7 +442,6 @@ export default function Home() {
 
             {/* Paket 2 */}
             <div className="bg-white dark:bg-black/60 border border-neutral-200 dark:border-neutral-800 rounded-3xl p-6 lg:p-8 backdrop-blur-xl hover:border-brand-tosca/50 hover:shadow-[0_0_40px_rgba(21,154,156,0.15)] transition-all flex flex-col relative overflow-hidden group">
-              <div className="absolute top-0 inset-x-0 h-1 bg-brand-tosca"></div>
               <h3 className="text-xl font-bold text-neutral-900 dark:text-white mb-2">Paket 2</h3>
               <div className="text-3xl font-bold text-brand-tosca mb-6">800.000</div>
               <ul className="space-y-4 mb-8 text-neutral-600 dark:text-brand-gray text-sm flex-1">
@@ -622,11 +622,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 md:gap-4 mb-12">
           <div className="flex items-center gap-5">
             <div className="relative w-14 h-14 md:w-16 md:h-16 rounded-2xl overflow-hidden border border-brand-tosca/20 shadow-[0_0_30px_rgba(21,154,156,0.1)] group">
-              <Image 
-                src="/logo.jpg" 
-                fill 
-                className="object-cover group-hover:scale-110 transition-transform duration-500" 
-                alt="Logo kangphoto94_id" 
+              <Image
+                src="/logo.jpg"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
+                alt="Logo kangphoto94_id"
               />
             </div>
             <div className="flex flex-col gap-1">
