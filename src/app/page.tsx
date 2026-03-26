@@ -22,7 +22,7 @@ export default function Home() {
     message: ""
   });
 
-  const WA_NUMBER = "6281312602025";
+  const WA_NUMBER = "6283827580259";
 
   const navItems = [
     { name: "Beranda", link: "/", icon: <IconHome className="h-4 w-4" /> },
