@@ -2,16 +2,16 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { IconDrone, IconCalendar, IconUser, IconClock, IconMessageCircle, IconRefresh, IconLogout } from "@tabler/icons-react";
+import { IconDrone, IconCalendar, IconUser, IconClock, IconMessageCircle, IconRefresh, IconLogout, IconBrandWhatsapp } from "@tabler/icons-react";
 
 interface Order {
   id: string;
   name: string;
-  drone: string;
+  phone: string;
+  package: string;
+  address: string;
   date: string;
-  duration: string;
-  withPilot: string;
-  message: string;
+  ktm: string;
   createdAt: string;
 }
 
@@ -113,29 +113,42 @@ export default function AdminPage() {
 
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   <div className="bg-neutral-900/50 p-4 rounded-2xl border border-neutral-800">
-                    <div className="text-brand-gray text-xs mb-1 flex items-center gap-1"><IconDrone className="w-3 h-3"/> Armada</div>
-                    <div className="text-white font-medium text-sm">{order.drone}</div>
+                    <div className="text-brand-gray text-xs mb-1 flex items-center gap-1"><IconDrone className="w-3 h-3"/> Paket Sewa</div>
+                    <div className="text-white font-medium text-sm">{order.package || '-'}</div>
                   </div>
                   <div className="bg-neutral-900/50 p-4 rounded-2xl border border-neutral-800">
                     <div className="text-brand-gray text-xs mb-1 flex items-center gap-1"><IconCalendar className="w-3 h-3"/> Tanggal</div>
                     <div className="text-white font-medium text-sm">{order.date || 'Belum diisi'}</div>
                   </div>
-                  <div className="bg-neutral-900/50 p-4 rounded-2xl border border-neutral-800">
-                    <div className="text-brand-gray text-xs mb-1 flex items-center gap-1"><IconClock className="w-3 h-3"/> Durasi</div>
-                    <div className="text-white font-medium text-sm">{order.duration}</div>
+                  <div className="bg-neutral-900/50 p-4 rounded-2xl border border-neutral-800 flex flex-col justify-center">
+                    <div className="text-brand-gray text-xs mb-1 flex items-center gap-1"><IconMessageCircle className="w-3 h-3"/> No HP / WA</div>
+                    {order.phone ? (
+                      <div className="flex items-center justify-between gap-2 mt-1">
+                        <span className="text-white font-medium text-sm truncate">{order.phone}</span>
+                        <a 
+                          href={`https://wa.me/${order.phone.replace(/\D/g, '').replace(/^0/, '62')}`} 
+                          target="_blank" 
+                          className="flex items-center justify-center p-1.5 bg-green-500/10 text-green-400 border border-green-500/20 rounded-lg hover:bg-green-500/20 hover:scale-105 transition-all shrink-0"
+                          title="Chat via WhatsApp"
+                        >
+                          <IconBrandWhatsapp className="w-4 h-4" />
+                        </a>
+                      </div>
+                    ) : (
+                      <span className="text-white font-medium text-sm">-</span>
+                    )}
                   </div>
-                  <div className="bg-neutral-900/50 p-4 rounded-2xl border border-neutral-800 flex items-center justify-center">
-                    <div className={`px-3 py-2 text-xs font-semibold rounded-lg ${order.withPilot === 'Ya' ? 'bg-green-500/10 text-green-400 border border-green-500/20' : 'bg-red-500/10 text-red-400 border border-red-500/20'}`}>
-                      {order.withPilot === 'Ya' ? '+ Pilot Lisensi' : 'Lepas Kunci'}
-                    </div>
+                  <div className="bg-neutral-900/50 p-4 rounded-2xl border border-neutral-800">
+                    <div className="text-brand-gray text-xs mb-1 flex items-center gap-1"><IconUser className="w-3 h-3"/> Kartu KTM</div>
+                    <div className="text-white font-medium text-sm">{order.ktm || '-'}</div>
                   </div>
                 </div>
 
                 <div className="bg-neutral-900 border border-neutral-800 p-5 rounded-2xl relative">
                   <IconMessageCircle className="absolute top-4 right-4 text-brand-gray/20 w-8 h-8" />
-                  <p className="text-xs text-brand-gray mb-2 font-medium">Catatan Produksi / Lokasi</p>
-                  <p className="text-sm text-neutral-300 italic">
-                    "{order.message || 'Tidak ada catatan tambahan ditinggalkan.'}"
+                  <p className="text-xs text-brand-gray mb-2 font-medium">Alamat</p>
+                  <p className="text-sm text-neutral-300">
+                    {order.address || 'Tidak ada alamat pengiriman.'}
                   </p>
                 </div>
 

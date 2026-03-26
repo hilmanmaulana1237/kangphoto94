@@ -15,11 +15,11 @@ import Image from "next/image";
 export default function Home() {
   const [formData, setFormData] = useState({
     name: "",
-    drone: "DJI Mini 3",
+    phone: "",
+    package: "Paket Promo Pelajar",
+    address: "",
     date: "",
-    duration: "1 Hari",
-    withPilot: "Ya",
-    message: ""
+    ktm: ""
   });
 
   const WA_NUMBER = "6283827580259";
@@ -52,18 +52,20 @@ export default function Home() {
     }
 
     // 2. Format Teks untuk WhatsApp
-    const text = `Halo *kangaerial/kangphoto94*, saya ingin menyewa armada dengan detail berikut:
+    const text = `Jasa sewa drone purwokerto
+%0ASilahkan isi form dibawah ini 👇🏻
 %0A
-%0A*Nama:* ${formData.name}
-%0A*Armada:* ${formData.drone}
-%0A*Tanggal:* ${formData.date}
-%0A*Durasi:* ${formData.duration}
-%0A*Dengan Pilot:* ${formData.withPilot}
-%0A*Pesan Tambahan:* ${formData.message}
+%0ANama : ${formData.name}
+%0ANo HP : ${formData.phone}
+%0APaket sewa : ${formData.package}
+%0AAlamat : ${formData.address}
+%0ATanggal pelaksanaan: ${formData.date}
+%0AKartu KTM : ${formData.ktm || '-'}
 %0A
-%0AMohon konfirmasi ketersediaan dan biayanya. Terima kasih!`;
+%0A👉🏻Booking maksimal H-7
+%0A👉🏻Pembayaran DP 30%`;
     const waUrl = `https://wa.me/${WA_NUMBER}?text=${text}`;
-    
+
     // 3. Arahkan pengguna ke WhatsApp
     window.open(waUrl, "_blank");
   };
@@ -280,37 +282,48 @@ export default function Home() {
             <p className="text-neutral-600 dark:text-brand-gray max-w-2xl text-sm md:text-lg">Ruang lingkup operasional yang disesuaikan dengan spektrum industri kreatif yang menuntut presisi tanpa kompromi.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 px-4 md:px-0">
-            <div className="flex flex-col bg-white dark:bg-black/40 backdrop-blur-xl border border-neutral-200 dark:border-neutral-800 rounded-[2rem] p-8 hover:-translate-y-2 hover:bg-brand-tosca/5 hover:border-brand-tosca/30 transition-all duration-500 relative overflow-hidden group">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 px-4 md:px-0">
+            <div className="flex flex-col bg-white dark:bg-black/40 backdrop-blur-xl border border-neutral-200 dark:border-neutral-800 rounded-[2rem] p-6 lg:p-8 hover:-translate-y-2 hover:bg-brand-tosca/5 hover:border-brand-tosca/30 transition-all duration-500 relative overflow-hidden group">
               <div className="absolute -right-10 -top-10 w-40 h-40 bg-brand-tosca/10 blur-3xl rounded-full group-hover:bg-brand-tosca/20 transition-colors"></div>
-              <div className="p-4 bg-neutral-50 dark:bg-brand-black rounded-2xl mb-8 w-fit border border-neutral-300 dark:border-neutral-700 group-hover:border-brand-tosca/50 transition-colors">
-                <IconVideo className="w-8 h-8 text-brand-tosca group-hover:text-neutral-900 dark:group-hover:text-white transition-colors" />
+              <div className="p-4 bg-neutral-50 dark:bg-brand-black rounded-2xl mb-6 w-fit border border-neutral-300 dark:border-neutral-700 group-hover:border-brand-tosca/50 transition-colors">
+                <IconUsers className="w-8 h-8 text-brand-tosca group-hover:text-neutral-900 dark:group-hover:text-white transition-colors" />
               </div>
-              <h3 className="text-2xl font-medium text-neutral-900 dark:text-white mb-4">Layar Lebar & TVC</h3>
+              <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-3">Company Profile</h3>
               <p className="text-neutral-600 dark:text-brand-gray text-sm md:text-base leading-relaxed mt-auto">
-                Implementasi sensor full-frame untuk Dynamic Range luas. Penstabilan 3 sumbu mekanik hilangkan mikrojitter pada manuver ekstrem.
+                Tingkatkan citra korporat Anda dengan sudut pandang udara yang megah, menampilkan skala dan profesionalisme aset perusahaan.
               </p>
             </div>
 
-            <div className="flex flex-col bg-white dark:bg-black/40 backdrop-blur-xl border border-neutral-200 dark:border-neutral-800 rounded-[2rem] p-8 hover:-translate-y-2 hover:bg-brand-tosca/5 hover:border-brand-tosca/30 transition-all duration-500 relative overflow-hidden group">
+            <div className="flex flex-col bg-white dark:bg-black/40 backdrop-blur-xl border border-neutral-200 dark:border-neutral-800 rounded-[2rem] p-6 lg:p-8 hover:-translate-y-2 hover:bg-brand-tosca/5 hover:border-brand-tosca/30 transition-all duration-500 relative overflow-hidden group">
               <div className="absolute -right-10 -top-10 w-40 h-40 bg-brand-tosca/10 blur-3xl rounded-full group-hover:bg-brand-tosca/20 transition-colors"></div>
-              <div className="p-4 bg-neutral-50 dark:bg-brand-black rounded-2xl mb-8 w-fit border border-neutral-300 dark:border-neutral-700 group-hover:border-brand-tosca/50 transition-colors">
+              <div className="p-4 bg-neutral-50 dark:bg-brand-black rounded-2xl mb-6 w-fit border border-neutral-300 dark:border-neutral-700 group-hover:border-brand-tosca/50 transition-colors">
                 <IconCamera className="w-8 h-8 text-brand-tosca group-hover:text-neutral-900 dark:group-hover:text-white transition-colors" />
               </div>
-              <h3 className="text-2xl font-medium text-neutral-900 dark:text-white mb-4">Event & Festival VIP</h3>
+              <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-3">Dokumentasi Event</h3>
               <p className="text-neutral-600 dark:text-brand-gray text-sm md:text-base leading-relaxed mt-auto">
-                Meliput dari sudut epik pada konser atau *wedding* eksklusif tanpa merusak polusi suara berkat baling-baling aerodinamis rendah-bising.
+                Cakupan visual spektakuler untuk konser, festival, hingga gathering eksklusif, menangkap euforia massa secara menyeluruh.
               </p>
             </div>
 
-            <div className="flex flex-col bg-white dark:bg-black/40 backdrop-blur-xl border border-neutral-200 dark:border-neutral-800 rounded-[2rem] p-8 hover:-translate-y-2 hover:bg-brand-tosca/5 hover:border-brand-tosca/30 transition-all duration-500 relative overflow-hidden group">
+            <div className="flex flex-col bg-white dark:bg-black/40 backdrop-blur-xl border border-neutral-200 dark:border-neutral-800 rounded-[2rem] p-6 lg:p-8 hover:-translate-y-2 hover:bg-brand-tosca/5 hover:border-brand-tosca/30 transition-all duration-500 relative overflow-hidden group">
               <div className="absolute -right-10 -top-10 w-40 h-40 bg-brand-tosca/10 blur-3xl rounded-full group-hover:bg-brand-tosca/20 transition-colors"></div>
-              <div className="p-4 bg-neutral-50 dark:bg-brand-black rounded-2xl mb-8 w-fit border border-neutral-300 dark:border-neutral-700 group-hover:border-brand-tosca/50 transition-colors">
-                <IconMap className="w-8 h-8 text-brand-tosca group-hover:text-neutral-900 dark:group-hover:text-white transition-colors" />
+              <div className="p-4 bg-neutral-50 dark:bg-brand-black rounded-2xl mb-6 w-fit border border-neutral-300 dark:border-neutral-700 group-hover:border-brand-tosca/50 transition-colors">
+                <IconDrone className="w-8 h-8 text-brand-tosca group-hover:text-neutral-900 dark:group-hover:text-white transition-colors" />
               </div>
-              <h3 className="text-2xl font-medium text-neutral-900 dark:text-white mb-4">Inspeksi & Pemetaan</h3>
+              <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-3">Aerial Photo & Video</h3>
               <p className="text-neutral-600 dark:text-brand-gray text-sm md:text-base leading-relaxed mt-auto">
-                Otomatisasi pemetaan dengan akurasi RTK sentimeter. Mampu menganalisa area operasional konstruksi, agrikultur, hingga pertambangan.
+                Kombinasi foto resolusi tinggi dan video sinematik dinamis untuk dokumentasi serbaguna proyek kreatif apa pun.
+              </p>
+            </div>
+
+            <div className="flex flex-col bg-white dark:bg-black/40 backdrop-blur-xl border border-neutral-200 dark:border-neutral-800 rounded-[2rem] p-6 lg:p-8 hover:-translate-y-2 hover:bg-brand-tosca/5 hover:border-brand-tosca/30 transition-all duration-500 relative overflow-hidden group">
+              <div className="absolute -right-10 -top-10 w-40 h-40 bg-brand-tosca/10 blur-3xl rounded-full group-hover:bg-brand-tosca/20 transition-colors"></div>
+              <div className="p-4 bg-neutral-50 dark:bg-brand-black rounded-2xl mb-6 w-fit border border-neutral-300 dark:border-neutral-700 group-hover:border-brand-tosca/50 transition-colors">
+                <IconVideo className="w-8 h-8 text-brand-tosca group-hover:text-neutral-900 dark:group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-3">Aerial Video Only</h3>
+              <p className="text-neutral-600 dark:text-brand-gray text-sm md:text-base leading-relaxed mt-auto">
+                Fokus maksimal pada pergerakan kamera udara untuk menghasilkan *footage* sinematik kelas atas yang siap diedit.
               </p>
             </div>
           </div>
@@ -336,7 +349,7 @@ export default function Home() {
             <p className="text-neutral-600 dark:text-brand-gray mt-4 max-w-xl mx-auto text-sm md:text-lg">Jajaran senjata pamungkas visualisasi angkasa untuk merealisasikan direksi imajinasi Anda.</p>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center relative">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center relative mb-24">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[500px] bg-brand-tosca/10 blur-[120px] rounded-full pointer-events-none"></div>
 
             <div className="w-full lg:w-1/2 z-10">
@@ -354,9 +367,9 @@ export default function Home() {
                       <div className="absolute inset-0 bg-gradient-to-t from-brand-black/90 via-black/20 to-transparent"></div>
                       <div className="absolute bottom-6 left-6">
                         <div className="px-3 py-1 mb-3 rounded-full bg-brand-tosca/20 border border-brand-tosca text-brand-tosca text-xs font-semibold backdrop-blur-md w-fit inline-block">
-                          ARMADA UTAMA
+                          BEST SELLER 🔥
                         </div>
-                        <h3 className="text-3xl font-bold text-white drop-shadow-lg">DJI Mini 3</h3>
+                        <h3 className="text-3xl font-bold text-white drop-shadow-lg">Paket Pelajar <br></br>(DJI Mini 3)</h3>
                       </div>
                     </div>
                   </CardItem>
@@ -366,56 +379,96 @@ export default function Home() {
 
             <div className="w-full lg:w-1/2 z-10 flex flex-col gap-6 md:gap-8">
               <div>
-                <h3 className="text-2xl md:text-3xl font-semibold text-neutral-900 dark:text-white mb-4">Ringkas, Senyap, Mematikan.</h3>
+                <h3 className="text-2xl md:text-3xl font-semibold text-neutral-900 dark:text-white mb-4">Pilihan Favorit Klien Kami.</h3>
                 <p className="text-neutral-600 dark:text-brand-gray text-base md:text-lg leading-relaxed">
-                  Dirancang khusus untuk manuver lincah dan regulasi ketat. DJI Mini 3 membawa sensor revolusioner bertenaga tinggi dalam bentuk aerodinamis super ringan. Ideal untuk dokumentasi kota padat maupun alam bebas.
+                  Paket 2 menawarkan keseimbangan sempurna antara harga dan durasi operasional. Direkomendasikan untuk dokumentasi event, wedding, maupun company profile standar tanpa khawatir kehabisan baterai.
                 </p>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-white dark:bg-black/50 border border-neutral-200 dark:border-neutral-800 p-4 rounded-2xl backdrop-blur-md">
+                  <span className="block text-brand-tosca font-bold text-xl md:text-2xl mb-1">2 Baterai</span>
+                  <span className="text-neutral-600 dark:text-brand-gray text-xs md:text-sm">Durasi Optimal</span>
+                </div>
+                <div className="bg-white dark:bg-black/50 border border-neutral-200 dark:border-neutral-800 p-4 rounded-2xl backdrop-blur-md">
+                  <span className="block text-brand-tosca font-bold text-xl md:text-2xl mb-1">Include</span>
+                  <span className="text-neutral-600 dark:text-brand-gray text-xs md:text-sm">Pilot Berlisensi</span>
+                </div>
+                <div className="bg-white dark:bg-black/50 border border-neutral-200 dark:border-neutral-800 p-4 rounded-2xl backdrop-blur-md">
                   <span className="block text-brand-tosca font-bold text-xl md:text-2xl mb-1">4K HDR</span>
                   <span className="text-neutral-600 dark:text-brand-gray text-xs md:text-sm">Resolusi Maksimal</span>
                 </div>
                 <div className="bg-white dark:bg-black/50 border border-neutral-200 dark:border-neutral-800 p-4 rounded-2xl backdrop-blur-md">
-                  <span className="block text-brand-tosca font-bold text-xl md:text-2xl mb-1">38 Menit</span>
-                  <span className="text-neutral-600 dark:text-brand-gray text-xs md:text-sm">Durasi Terbang</span>
-                </div>
-                <div className="bg-white dark:bg-black/50 border border-neutral-200 dark:border-neutral-800 p-4 rounded-2xl backdrop-blur-md">
-                  <span className="block text-brand-tosca font-bold text-xl md:text-2xl mb-1">&lt;249g</span>
-                  <span className="text-neutral-600 dark:text-brand-gray text-xs md:text-sm">Bebas Regulasi Berat</span>
-                </div>
-                <div className="bg-white dark:bg-black/50 border border-neutral-200 dark:border-neutral-800 p-4 rounded-2xl backdrop-blur-md">
                   <span className="block text-brand-tosca font-bold text-xl md:text-2xl mb-1">Vertical</span>
-                  <span className="text-neutral-600 dark:text-brand-gray text-xs md:text-sm">Format TikTok/Reels</span>
+                  <span className="text-neutral-600 dark:text-brand-gray text-xs md:text-sm">Support Reels/TikTok</span>
                 </div>
-              </div>
-
-              <div className="bg-neutral-50 dark:bg-brand-black/40 border border-neutral-200 dark:border-neutral-800 rounded-2xl p-5 md:p-6">
-                <h4 className="text-neutral-900 dark:text-white font-medium mb-4 flex items-center gap-2">
-                  <IconShieldCheck className="w-5 h-5 text-brand-tosca" /> Keunggulan Utama
-                </h4>
-                <ul className="space-y-3 text-neutral-600 dark:text-brand-gray text-sm md:text-base">
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-tosca mt-2 shrink-0"></div>
-                    <span> Sensor 1/1.3-inch CMOS untuk performa Low-Light luar biasa</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-tosca mt-2 shrink-0"></div>
-                    <span> Gimbal bisa berotasi 90° untuk konten vertikal tanpa cropping</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-tosca mt-2 shrink-0"></div>
-                    <span> Tingkat kebisingan (noise) sangat rendah, tidak merusak audio syuting</span>
-                  </li>
-                </ul>
               </div>
 
               <div className="flex items-center gap-4 mt-2">
-                <div className="text-2xl md:text-4xl font-bold text-brand-tosca tracking-tight">Rp 1.000.000</div>
-                <div className="text-neutral-600 dark:text-brand-gray text-sm md:text-base font-medium">/ Hari <br /><span className="text-neutral-500 font-light">(Termasuk Pilot & Baterai)</span></div>
+                <div className="text-2xl md:text-4xl font-bold text-brand-tosca tracking-tight">Rp 350.000</div>
               </div>
             </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[500px] bg-brand-tosca/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+            {/* Paket Promo Pelajar */}
+            <div className="bg-white dark:bg-black/60 border border-neutral-200 dark:border-neutral-800 rounded-3xl p-6 lg:p-8 backdrop-blur-xl hover:border-brand-tosca/50 hover:shadow-[0_0_40px_rgba(21,154,156,0.15)] transition-all flex flex-col relative overflow-hidden group">
+              <div className="px-3 py-1 mb-3 rounded-full bg-brand-tosca/10 border border-brand-tosca/50 text-brand-tosca text-xs font-semibold backdrop-blur-md w-fit inline-block">BEST SELLER</div>
+              <h3 className="text-xl font-bold text-neutral-900 dark:text-white mb-2">Paket Promo Pelajar</h3>
+              <div className="text-3xl font-bold text-brand-tosca mb-6">350.000</div>
+              <ul className="space-y-4 mb-8 text-neutral-600 dark:text-brand-gray text-sm flex-1">
+                <li className="flex items-start gap-3"><IconShieldCheck className="w-5 h-5 text-brand-tosca shrink-0" /> Free Include Pilot</li>
+                <li className="flex items-start gap-3"><IconShieldCheck className="w-5 h-5 text-brand-tosca shrink-0" /> 1 Baterai</li>
+              </ul>
+              <div className="space-y-2 border-t border-neutral-200 dark:border-neutral-800 pt-4 mb-6">
+                <div className="flex items-start gap-2 text-xs italic opacity-80"><IconInfoCircle className="w-4 h-4 text-neutral-400 shrink-0" /> *wajib menunjukkan KTM</div>
+                <div className="flex items-start gap-2 text-xs italic opacity-80"><IconInfoCircle className="w-4 h-4 text-neutral-400 shrink-0" /> *Follow ig @kangphoto94_id (10 akun)</div>
+              </div>
+              <a href="#pesan" className="w-full py-3 rounded-xl bg-brand-tosca text-white font-medium text-center hover:bg-brand-darkTosca transition-colors block">Pilih Paket Pelajar</a>
+            </div>
+
+            {/* Paket 1 */}
+            <div className="bg-white dark:bg-black/60 border border-neutral-200 dark:border-neutral-800 rounded-3xl p-6 lg:p-8 backdrop-blur-xl hover:border-brand-tosca/50 hover:shadow-[0_0_40px_rgba(21,154,156,0.15)] transition-all flex flex-col relative overflow-hidden group">
+              <h3 className="text-xl font-bold text-neutral-900 dark:text-white mb-2">Paket 1</h3>
+              <div className="text-3xl font-bold text-brand-tosca mb-6">500.000</div>
+              <ul className="space-y-4 mb-8 text-neutral-600 dark:text-brand-gray text-sm flex-1">
+                <li className="flex items-start gap-3"><IconShieldCheck className="w-5 h-5 text-brand-tosca shrink-0" /> Free Include Pilot</li>
+                <li className="flex items-start gap-3"><IconShieldCheck className="w-5 h-5 text-brand-tosca shrink-0" /> 1 Baterai</li>
+              </ul>
+              <div className="mt-auto">
+                <a href="#pesan" className="w-full py-3 rounded-xl bg-neutral-900 dark:bg-white text-white dark:text-black font-medium text-center hover:bg-brand-tosca hover:text-white transition-colors block">Pilih Paket 1</a>
+              </div>
+            </div>
+
+            {/* Paket 2 */}
+            <div className="bg-white dark:bg-black/60 border border-neutral-200 dark:border-neutral-800 rounded-3xl p-6 lg:p-8 backdrop-blur-xl hover:border-brand-tosca/50 hover:shadow-[0_0_40px_rgba(21,154,156,0.15)] transition-all flex flex-col relative overflow-hidden group">
+              <div className="absolute top-0 inset-x-0 h-1 bg-brand-tosca"></div>
+              <h3 className="text-xl font-bold text-neutral-900 dark:text-white mb-2">Paket 2</h3>
+              <div className="text-3xl font-bold text-brand-tosca mb-6">800.000</div>
+              <ul className="space-y-4 mb-8 text-neutral-600 dark:text-brand-gray text-sm flex-1">
+                <li className="flex items-start gap-3"><IconShieldCheck className="w-5 h-5 text-brand-tosca shrink-0" /> Free Include Pilot</li>
+                <li className="flex items-start gap-3"><IconShieldCheck className="w-5 h-5 text-brand-tosca shrink-0" /> 2 Baterai</li>
+              </ul>
+              <div className="mt-auto">
+                <a href="#pesan" className="w-full py-3 rounded-xl bg-neutral-900 dark:bg-white text-white dark:text-black font-medium text-center hover:bg-brand-tosca hover:text-white transition-colors block">Pilih Paket 2</a>
+              </div>
+            </div>
+
+            {/* Paket 3 */}
+            <div className="bg-white dark:bg-black/60 border border-neutral-200 dark:border-neutral-800 rounded-3xl p-6 lg:p-8 backdrop-blur-xl hover:border-brand-tosca/50 hover:shadow-[0_0_40px_rgba(21,154,156,0.15)] transition-all flex flex-col relative overflow-hidden group">
+              <h3 className="text-xl font-bold text-neutral-900 dark:text-white mb-2">Paket 3</h3>
+              <div className="text-3xl font-bold text-brand-tosca mb-6">1.300.000</div>
+              <ul className="space-y-4 mb-8 text-neutral-600 dark:text-brand-gray text-sm flex-1">
+                <li className="flex items-start gap-3"><IconShieldCheck className="w-5 h-5 text-brand-tosca shrink-0" /> Free Include Pilot</li>
+                <li className="flex items-start gap-3"><IconShieldCheck className="w-5 h-5 text-brand-tosca shrink-0" /> Full Day (1 Hari)</li>
+              </ul>
+              <div className="mt-auto">
+                <a href="#pesan" className="w-full py-3 rounded-xl bg-neutral-900 dark:bg-white text-white dark:text-black font-medium text-center hover:bg-brand-tosca hover:text-white transition-colors block">Pilih Paket 3</a>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -484,79 +537,75 @@ export default function Home() {
             <form onSubmit={handleOrder} className="flex flex-col gap-6 md:gap-8 relative z-10">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 <div className="flex flex-col gap-2">
-                  <label className="text-sm font-medium text-neutral-600 dark:text-brand-gray ml-1">Nama / Instansi</label>
+                  <label className="text-sm font-medium text-neutral-600 dark:text-brand-gray ml-1">Nama</label>
                   <input
                     type="text"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="bg-neutral-50 dark:bg-brand-black/80 border border-neutral-200 dark:border-neutral-800 rounded-2xl px-5 py-4 text-neutral-900 dark:text-white placeholder-brand-gray/50 focus:outline-none focus:border-brand-tosca transition-all font-light"
-                    placeholder="Budi Santoso / PT. Media"
+                    placeholder="Mulia"
                   />
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label className="text-sm font-medium text-neutral-600 dark:text-brand-gray ml-1">Pilihan Armada</label>
+                  <label className="text-sm font-medium text-neutral-600 dark:text-brand-gray ml-1">No HP / WhatsApp</label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="bg-neutral-50 dark:bg-brand-black/80 border border-neutral-200 dark:border-neutral-800 rounded-2xl px-5 py-4 text-neutral-900 dark:text-white placeholder-brand-gray/50 focus:outline-none focus:border-brand-tosca transition-all font-light"
+                    placeholder="+62 882-2112-8122"
+                  />
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <label className="text-sm font-medium text-neutral-600 dark:text-brand-gray ml-1">Paket Sewa</label>
                   <select
-                    value={formData.drone}
-                    onChange={(e) => setFormData({ ...formData, drone: e.target.value })}
+                    value={formData.package}
+                    onChange={(e) => setFormData({ ...formData, package: e.target.value })}
                     className="bg-neutral-50 dark:bg-brand-black/80 border border-neutral-200 dark:border-neutral-800 rounded-2xl px-5 py-4 text-neutral-900 dark:text-white focus:outline-none focus:border-brand-tosca transition-all appearance-none font-light"
                   >
-                    <option value="DJI Mini 3">DJI Mini 3</option>
-                    <option value="Konsultasi Dulu">Belum Yakin (Konsultasi via WA)</option>
+                    <option value="Paket Promo Pelajar">Paket Promo Pelajar (350k)</option>
+                    <option value="Paket 1">Paket 1 (500k)</option>
+                    <option value="Paket 2">Paket 2 (800k)</option>
+                    <option value="Paket 3">Paket 3 (1.300k)</option>
                   </select>
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label className="text-sm font-medium text-neutral-600 dark:text-brand-gray ml-1">Tanggal</label>
+                  <label className="text-sm font-medium text-neutral-600 dark:text-brand-gray ml-1">Tanggal Pelaksanaan</label>
                   <input
                     type="date"
                     required
                     value={formData.date}
                     onChange={(e) => setFormData({ ...formData, date: e.target.value })}
                     className="bg-neutral-50 dark:bg-brand-black/80 border border-neutral-200 dark:border-neutral-800 rounded-2xl px-5 py-4 text-neutral-900 dark:text-white focus:outline-none focus:border-brand-tosca transition-all font-light"
-                    
                   />
                 </div>
-
-                <div className="flex flex-col gap-2">
-                  <label className="text-sm font-medium text-neutral-600 dark:text-brand-gray ml-1">Durasi Sewa</label>
-                  <select
-                    value={formData.duration}
-                    onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
-                    className="bg-neutral-50 dark:bg-brand-black/80 border border-neutral-200 dark:border-neutral-800 rounded-2xl px-5 py-4 text-neutral-900 dark:text-white focus:outline-none focus:border-brand-tosca transition-all appearance-none font-light"
-                  >
-                    <option value="TBD / Konsultasi Dulu">Konsultasi Dulu</option>
-                    <option value="Setengah Hari (6 Jam)">Setengah Hari (6 Jam)</option>
-                    <option value="1 Hari (12 Jam)">1 Hari (12 Jam)</option>
-                    <option value="Eksklusif / Multi-day">Multi-day (&gt;1 Hari)</option>
-                  </select>
-                </div>
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-medium text-neutral-600 dark:text-brand-gray ml-1">Opsi Pelayanan Pilot</label>
-                <div className="flex flex-col md:flex-row gap-4">
-                  <label className="flex items-center gap-3 cursor-pointer bg-neutral-50 dark:bg-brand-black/80 border border-neutral-200 dark:border-neutral-800 px-6 py-4 rounded-2xl w-full md:w-1/2 hover:border-brand-tosca/50 transition-colors">
-                    <input type="radio" checked={formData.withPilot === "Ya"} onChange={() => setFormData({ ...formData, withPilot: "Ya" })} name="pilot" className="accent-brand-tosca w-4 h-4" />
-                    <span className="text-neutral-700 dark:text-neutral-200 text-sm font-light">Plus Pilot Berlisensi (Disarankan)</span>
-                  </label>
-                  <label className="flex items-center gap-3 cursor-pointer bg-neutral-50 dark:bg-brand-black/80 border border-neutral-200 dark:border-neutral-800 px-6 py-4 rounded-2xl w-full md:w-1/2 hover:border-brand-tosca/50 transition-colors">
-                    <input type="radio" checked={formData.withPilot === "Tidak (Lepas Kunci)"} onChange={() => setFormData({ ...formData, withPilot: "Tidak (Lepas Kunci)" })} name="pilot" className="accent-brand-tosca w-4 h-4" />
-                    <span className="text-neutral-700 dark:text-neutral-200 text-sm font-light">Drone Saja (Lepas Kunci)</span>
-                  </label>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <label className="text-sm font-medium text-neutral-600 dark:text-brand-gray ml-1">Deskripsi & Lokasi Produksi</label>
+                <label className="text-sm font-medium text-neutral-600 dark:text-brand-gray ml-1">Alamat</label>
                 <textarea
-                  rows={4}
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  rows={2}
+                  value={formData.address}
+                  onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                   className="bg-neutral-50 dark:bg-brand-black/80 border border-neutral-200 dark:border-neutral-800 rounded-2xl px-5 py-5 text-neutral-900 dark:text-white placeholder-brand-gray/50 focus:outline-none focus:border-brand-tosca transition-all resize-none font-light"
-                  placeholder="Ceritakan singkat visi Anda, lokasi, dan kebutuhan spesifik. Cth: Syuting dokumenter di Jakarta..."
+                  placeholder="FMIPA Unsoed"
                 ></textarea>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <label className="text-sm font-medium text-neutral-600 dark:text-brand-gray ml-1">Kartu KTM (Khusus Pelajar)</label>
+                <input
+                  type="text"
+                  value={formData.ktm}
+                  onChange={(e) => setFormData({ ...formData, ktm: e.target.value })}
+                  className="bg-neutral-50 dark:bg-brand-black/80 border border-neutral-200 dark:border-neutral-800 rounded-2xl px-5 py-4 text-neutral-900 dark:text-white placeholder-brand-gray/50 focus:outline-none focus:border-brand-tosca transition-all font-light"
+                  placeholder="Ada / Tidak Ada"
+                />
               </div>
 
               <button
