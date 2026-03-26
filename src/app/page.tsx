@@ -6,11 +6,65 @@ import { FloatingNav } from "@/components/ui/floating-navbar";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { VideoModal } from "@/components/ui/video-modal";
+import { HeroParallax } from "@/components/ui/hero-parallax";
 import {
   IconHome, IconInfoCircle, IconMessage, IconCamera, IconVideo, IconMap,
   IconWallet, IconBulb, IconShieldCheck, IconFocus2, IconRocket, IconUsers, IconCoin, IconDrone
 } from "@tabler/icons-react";
 import Image from "next/image";
+
+const droneImages = [
+  "https://images.unsplash.com/photo-1671342986594-290be888b500?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1671431270676-2e7ad2bddd4d?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1672912995257-0c8255289523?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://plus.unsplash.com/premium_photo-1697730050329-e11a8eb63c69?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+];
+
+const parallaxProducts = [
+  { title: "Golden Horizon", link: "#", thumbnail: droneImages[0] },
+  { title: "Nature Canopy", link: "#", thumbnail: droneImages[1] },
+  { title: "River View", link: "#", thumbnail: droneImages[2] },
+  { title: "Mountain High", link: "#", thumbnail: droneImages[3] },
+  { title: "Sunset Flight", link: "#", thumbnail: droneImages[0] },
+  { title: "Epic Scale", link: "#", thumbnail: droneImages[1] },
+  { title: "City Grid", link: "#", thumbnail: droneImages[2] },
+  { title: "Rural Aerial", link: "#", thumbnail: droneImages[3] },
+  { title: "Dynamic Sky", link: "#", thumbnail: droneImages[0] },
+  { title: "Cloud Drift", link: "#", thumbnail: droneImages[1] },
+  { title: "Winter Ridge", link: "#", thumbnail: droneImages[2] },
+  { title: "Morning Mist", link: "#", thumbnail: droneImages[3] },
+  { title: "Ocean Deep", link: "#", thumbnail: droneImages[0] },
+  { title: "Valley Range", link: "#", thumbnail: droneImages[1] },
+  { title: "Tropical Island", link: "#", thumbnail: droneImages[2] },
+];
+
+const HeroHeader = () => {
+  return (
+    <div className="z-10 flex flex-col items-start justify-center px-4 md:px-6 max-w-7xl mx-auto text-left gap-6 relative mt-4 md:mt-0 w-full left-0 top-0 pt-10 pb-10 md:pt-20 md:pb-12">
+      <div className="px-5 py-2 rounded-full border border-brand-tosca/30 text-brand-tosca shadow-[0_0_20px_rgba(21,154,156,0.2)] text-xs md:text-sm tracking-[0.2em] uppercase font-medium bg-neutral-50 dark:bg-brand-black/80 backdrop-blur-md w-fit">
+        Sewa Drone Premium <span className="text-neutral-900 dark:text-white">kangphoto94_id</span>
+      </div>
+
+      <TextGenerateEffect
+        words="Elevate Your Vision, Capture The Impossible."
+        className="text-4xl md:text-6xl lg:text-7xl font-light text-neutral-900 dark:text-white tracking-tight leading-tight z-10"
+      />
+
+      <p className="text-neutral-600 dark:text-brand-gray text-base md:text-xl max-w-2xl mt-4 max-md:mt-2 font-light leading-relaxed">
+        Jasa Sewa Drone Profesional untuk Foto Udara & Video Udara. Persenjatai project Anda dengan drone terbaik yang dikendalikan oleh pilot bersertifikat.
+      </p>
+
+      <div className="flex flex-col w-full sm:w-auto sm:flex-row gap-4 mt-8 md:mt-12 relative z-20">
+        <a href="#drone" className="px-8 py-4 rounded-full bg-brand-tosca text-white font-semibold hover:bg-brand-darkTosca hover:scale-[1.02] shadow-[0_0_40px_rgba(21,154,156,0.4)] transition-all text-sm md:text-base text-center">
+          Eksplorasi Drone
+        </a>
+        <a href="#pesan" className="px-8 py-4 rounded-full border border-brand-gray/50 text-neutral-900 dark:text-white font-medium hover:bg-brand-tosca/10 hover:border-brand-tosca hover:text-brand-tosca transition-colors text-sm md:text-base text-center backdrop-blur-sm bg-white dark:bg-black/40">
+          Booking Sekarang
+        </a>
+      </div>
+    </div>
+  );
+};
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -71,49 +125,9 @@ export default function Home() {
     <main className="bg-neutral-50 dark:bg-brand-black min-h-screen selection:bg-brand-tosca/30 selection:text-brand-tosca font-sans text-neutral-600 dark:text-brand-gray overflow-x-hidden">
       <FloatingNav navItems={navItems} />
 
-      {/* HERO SECTION - AURORA OVERLAYED ON MOUNTAIN DRONE PIC */}
-      <section className="relative overflow-hidden w-full h-auto min-h-[90vh] flex items-center justify-center pt-20">
-        <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
-          <Image
-            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2000&auto=format&fit=crop"
-            fill
-            className="object-cover grayscale-[30%]"
-            alt="Hero Background"
-            priority
-          />
-          <div className="absolute inset-0 bg-white/60 dark:bg-brand-black/70"></div>
-          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-neutral-50 dark:from-brand-black to-transparent"></div>
-        </div>
-
-        {/* We use AuroraBackground as a wrapper to bring its animation without blocking our img */}
-        {/* Adjusted Aurora colors via globals.css or keep it neutral to act as lighting */}
-        <AuroraBackground className="bg-transparent absolute inset-0 z-0 h-full w-full opacity-40 mix-blend-screen pointer-events-none">
-          <div />
-        </AuroraBackground>
-
-        <div className="z-10 flex flex-col items-center justify-center px-4 md:px-6 max-w-5xl mx-auto text-center gap-6 relative mt-10 md:mt-0">
-          <div className="px-5 py-2 rounded-full border border-brand-tosca/30 text-brand-tosca shadow-[0_0_20px_rgba(21,154,156,0.2)] text-xs md:text-sm tracking-[0.2em] uppercase font-medium bg-neutral-50 dark:bg-brand-black/80 backdrop-blur-md">
-            Sewa Drone Premium <span className="text-neutral-900 dark:text-white">kangphoto94_id</span>
-          </div>
-
-          <TextGenerateEffect
-            words="Elevate Your Vision, Capture The Impossible."
-            className="text-4xl md:text-6xl lg:text-7xl font-light text-neutral-900 dark:text-white tracking-tight leading-tight z-10"
-          />
-
-          <p className="text-neutral-600 dark:text-brand-gray text-base md:text-xl max-w-2xl mt-4 max-md:mt-2 font-light leading-relaxed px-4">
-            Jasa Sewa Drone Profesional untuk Foto Udara & Video Udara. Persenjatai project Anda dengan drone terbaik yang dikendalikan oleh pilot bersertifikat.
-          </p>
-
-          <div className="flex flex-col w-full sm:w-auto sm:flex-row gap-4 mt-8 md:mt-12 px-4 relative z-20">
-            <a href="#drone" className="px-8 py-4 rounded-full bg-brand-tosca text-white font-semibold hover:bg-brand-darkTosca hover:scale-[1.02] shadow-[0_0_40px_rgba(21,154,156,0.4)] transition-all text-sm md:text-base text-center">
-              Eksplorasi Drone
-            </a>
-            <a href="#pesan" className="px-8 py-4 rounded-full border border-brand-gray/50 text-neutral-900 dark:text-white font-medium hover:bg-brand-tosca/10 hover:border-brand-tosca hover:text-brand-tosca transition-colors text-sm md:text-base text-center backdrop-blur-sm bg-white dark:bg-black/40">
-              Booking Sekarang
-            </a>
-          </div>
-        </div>
+      {/* HERO SECTION - PARALLAX GALLERY */}
+      <section className="relative overflow-hidden w-full h-auto min-h-screen bg-neutral-50 dark:bg-brand-black z-10 pt-10">
+        <HeroParallax products={parallaxProducts} header={<HeroHeader />} />
       </section>
 
       {/* TENTANG KAMI: AERIAL CITY DARK BACKGROUND */}
