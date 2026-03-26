@@ -40,7 +40,7 @@ const parallaxProducts = [
 
 const HeroHeader = () => {
   return (
-    <div className="z-10 flex flex-col items-start justify-center px-4 md:px-6 max-w-7xl mx-auto text-left gap-6 relative mt-4 md:mt-0 w-full left-0 top-0 pt-20 pb-4 md:pt-28 md:pb-8">
+    <div className="z-10 flex flex-col items-start justify-center px-4 md:px-6 max-w-7xl mx-auto text-left gap-6 relative mt-4 md:mt-0 w-full left-0 top-0 pt-6 md:pt-16 pb-0">
       <div className="px-5 py-2 rounded-full border border-brand-tosca/30 text-brand-tosca shadow-[0_0_20px_rgba(21,154,156,0.2)] text-xs md:text-sm tracking-[0.2em] uppercase font-medium bg-neutral-50 dark:bg-brand-black/80 backdrop-blur-md w-fit">
         Sewa Drone Premium <span className="text-neutral-900 dark:text-white">kangphoto94_id</span>
       </div>
@@ -376,7 +376,7 @@ export default function Home() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-brand-black/90 via-black/20 to-transparent"></div>
                       <div className="absolute bottom-6 left-6">
-                        <div className="px-3 py-1 mb-3 rounded-full bg-brand-tosca/20 border border-brand-tosca text-brand-tosca text-xs font-semibold backdrop-blur-md w-fit inline-block">
+                        <div className="px-2 py-1 md:px-3 md:py-1 mb-3 rounded-full bg-brand-tosca text-white border border-brand-tosca/50 text-[10px] md:text-xs font-bold shadow-md w-fit inline-block tracking-wider">
                           BEST SELLER 🔥
                         </div>
                         <h3 className="text-3xl font-bold text-white drop-shadow-lg">Paket Pelajar <br></br>(DJI Mini 3)</h3>
@@ -425,7 +425,7 @@ export default function Home() {
 
             {/* Paket Promo Pelajar */}
             <div className="bg-white dark:bg-black/60 border border-neutral-200 dark:border-neutral-800 rounded-3xl p-6 lg:p-8 backdrop-blur-xl hover:border-brand-tosca/50 hover:shadow-[0_0_40px_rgba(21,154,156,0.15)] transition-all flex flex-col relative overflow-hidden group">
-              <div className="px-3 py-1 mb-3 rounded-full bg-brand-tosca/10 border border-brand-tosca/50 text-brand-tosca text-xs font-semibold backdrop-blur-md w-fit inline-block">BEST SELLER</div>
+              <div className="px-2 py-1 md:px-3 md:py-1 mb-3 rounded-full bg-brand-tosca text-white border border-brand-tosca/50 text-[10px] md:text-xs font-bold shadow-md w-fit inline-block tracking-wider">BEST SELLER</div>
               <div className="absolute top-0 inset-x-0 h-1 bg-brand-tosca"></div>
               <h3 className="text-xl font-bold text-neutral-900 dark:text-white mb-2">Paket Promo Pelajar</h3>
               <div className="text-3xl font-bold text-brand-tosca mb-6">350.000</div>
@@ -520,9 +520,9 @@ export default function Home() {
 
           {/* INSTAGRAM BUTTON */}
           <div className="mt-16 flex justify-center w-full relative z-20">
-            <a 
-              href="https://instagram.com/kangphoto94_id" 
-              target="_blank" 
+            <a
+              href="https://instagram.com/kangphoto94_id"
+              target="_blank"
               rel="noopener noreferrer"
               className="group relative inline-flex items-center justify-center gap-3 px-8 py-5 bg-gradient-to-tr from-[#f09433] via-[#e6683c] via-[#dc2743] via-[#cc2366] to-[#bc1888] rounded-full text-white font-semibold text-base md:text-lg overflow-hidden shadow-[0_0_40px_rgba(220,39,67,0.4)] hover:shadow-[0_0_60px_rgba(220,39,67,0.6)] hover:-translate-y-1 transition-all duration-300"
             >
