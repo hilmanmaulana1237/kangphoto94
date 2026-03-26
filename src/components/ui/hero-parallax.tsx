@@ -68,7 +68,7 @@ export const HeroParallax = ({
           translateY,
           opacity,
         }}
-        className="-mt-[20vh] md:-mt-[10vh]"
+        className="-mt-[50vh] md:-mt-[40vh]"
       >
         <div className="w-full text-center pb-16">
           <h2 className="text-3xl md:text-5xl font-light text-neutral-900 dark:text-white tracking-tight">Hasil <span className="font-bold text-brand-tosca">Karya Udara</span> Kami</h2>

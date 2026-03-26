@@ -40,7 +40,7 @@ const parallaxProducts = [
 
 const HeroHeader = () => {
   return (
-    <div className="z-10 flex flex-col items-start justify-center px-4 md:px-6 max-w-7xl mx-auto text-left gap-6 relative mt-4 md:mt-0 w-full left-0 top-0 pt-10 pb-10 md:pt-20 md:pb-12">
+    <div className="z-10 flex flex-col items-start justify-center px-4 md:px-6 max-w-7xl mx-auto text-left gap-6 relative mt-4 md:mt-0 w-full left-0 top-0 pt-20 pb-4 md:pt-28 md:pb-8">
       <div className="px-5 py-2 rounded-full border border-brand-tosca/30 text-brand-tosca shadow-[0_0_20px_rgba(21,154,156,0.2)] text-xs md:text-sm tracking-[0.2em] uppercase font-medium bg-neutral-50 dark:bg-brand-black/80 backdrop-blur-md w-fit">
         Sewa Drone Premium <span className="text-neutral-900 dark:text-white">kangphoto94_id</span>
       </div>
@@ -125,7 +125,7 @@ export default function Home() {
       <FloatingNav navItems={navItems} />
 
       {/* HERO SECTION - PARALLAX GALLERY */}
-      <section className="relative overflow-hidden w-full h-auto min-h-screen bg-neutral-50 dark:bg-brand-black z-10 pt-10">
+      <section className="relative overflow-hidden w-full h-auto min-h-screen bg-neutral-50 dark:bg-brand-black z-10">
         <HeroParallax products={parallaxProducts} header={<HeroHeader />} />
       </section>
 

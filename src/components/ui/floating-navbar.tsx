@@ -56,7 +56,7 @@ export const FloatingNav = ({
           duration: 0.2,
         }}
         className={cn(
-          "flex max-w-fit md:min-w-[70vw] lg:min-w-fit fixed top-4 inset-x-0 mx-auto border border-neutral-200 dark:border-neutral-800 rounded-full bg-white/90 dark:bg-black/90 backdrop-blur-md shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] px-6 py-4 items-center justify-between gap-8 md:gap-16",
+          "flex fixed top-4 inset-x-0 mx-auto border border-neutral-200 dark:border-neutral-800 rounded-full bg-white/90 dark:bg-black/90 backdrop-blur-md shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] px-4 py-3 md:px-8 md:py-3 items-center justify-center gap-4 sm:gap-6 md:gap-8 w-max max-w-[95%]",
           className
         )}
       >
@@ -72,7 +72,7 @@ export const FloatingNav = ({
             <span className="hidden sm:block text-sm font-medium">{navItem.name}</span>
           </Link>
         ))}
-        <button className="border text-sm font-medium relative border-brand-tosca/30 text-white px-4 py-2 rounded-full hover:bg-brand-tosca/10 transition-colors">
+        <button className="border text-sm font-medium relative border-brand-tosca/50 text-brand-tosca dark:text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full hover:bg-brand-tosca/10 transition-colors">
           <span>Sewa Sekarang</span>
           <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-brand-tosca to-transparent h-px" />
         </button>
